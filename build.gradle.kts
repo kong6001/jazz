@@ -7,7 +7,7 @@ plugins {
 
 group = "com.elex-project"
 version = "1.0.0"
-description = "Swing GUI Library"
+description = "Jazz is a Swing GUI Library"
 
 repositories {
 	maven {
@@ -69,7 +69,7 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				name.set(project.name)
+				name.set("Jazz")
 				description.set(project.description)
 				url.set("https://github.com/elex-project/sphinx")
 				properties.set(mapOf(
