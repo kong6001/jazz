@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.0.0"
+version = "1.1.0"
 description = "Jazz is a Swing GUI Library"
 
 repositories {
@@ -69,7 +69,7 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				name.set("Jazz")
+				name.set("Jazz!")
 				description.set(project.description)
 				url.set("https://github.com/elex-project/sphinx")
 				properties.set(mapOf(
@@ -136,4 +136,3 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
 }
-
