@@ -6,8 +6,8 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.0-SNAPSHOT"
-description = ""
+version = "1.0.0"
+description = "Swing GUI Library"
 
 repositories {
 	maven {
@@ -32,12 +32,12 @@ configurations {
 }
 
 tasks.jar {
-	manifest { // todo
+	manifest {
 		attributes(mapOf(
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
 				"Implementation-Vendor" to "ELEX co.,pte.",
-				"Automatic-Module-Name" to "com.elex_project.${project.name}"
+				"Automatic-Module-Name" to "com.elex_project.sphinx"
 		))
 	}
 }
@@ -69,20 +69,16 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				// todo
 				name.set(project.name)
 				description.set(project.description)
-				url.set("https://")
-				year.set("2021")
+				url.set("https://github.com/elex-project/sphinx")
 				properties.set(mapOf(
-						"myProp" to "value",
-						"prop.with.dots" to "anotherValue"
+						"year" to "2021"
 				))
 				licenses {
 					license {
-						// todo
-						name.set("BSD 3-Clause License")
-						url.set("licenseUrl")
+						name.set("Apache-2.0 License")
+						url.set("https://github.com/elex-project/sphinx/blob/main/LICENSE")
 					}
 				}
 				developers {
@@ -93,10 +89,9 @@ publishing {
 					}
 				}
 				scm {
-					// todo
-					connection.set("scm:git:https://github.com/my-library.git")
-					developerConnection.set("scm:git:https://github.com/my-library.git")
-					url.set("https://github.com/my-library/")
+					connection.set("scm:git:https://github.com/elex-project/sphinx.git")
+					developerConnection.set("scm:git:https://github.com/elex-project/sphinx.git")
+					url.set("https://github.com/elex-project/sphinx")
 				}
 			}
 		}
@@ -114,9 +109,9 @@ publishing {
 				password = project.findProperty("repo.password") as String
 			}
 		}
-		maven { //todo
+		maven {
 			name = "mavenGithub"
-			url = uri("https://maven.pkg.github.com/elex-project/tmpl-java-library")
+			url = uri("https://maven.pkg.github.com/elex-project/sphinx")
 			credentials {
 				username = project.findProperty("github.username") as String
 				password = project.findProperty("github.token") as String
@@ -133,6 +128,9 @@ dependencies {
 	compileOnly("org.projectlombok:lombok:1.18.16")
 	annotationProcessor("org.projectlombok:lombok:1.18.16")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.16")
+
+	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
+	implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.1")
 
 	testImplementation("ch.qos.logback:logback-classic:1.2.3")
 	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")

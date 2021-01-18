@@ -1,0 +1,421 @@
+[
+  {
+    "project": "abraxas",
+    "description": "Core Utility Classes",
+    "version": "4.0.2",
+    "developers": [
+      "Elex"
+    ],
+    "url": "https://github.com/elex-project/abraxas",
+    "year": null,
+    "licenses": [
+      {
+        "license": "BSD 3-Clause License",
+        "license_url": "https://github.com/elex-project/abraxas/blob/main/LICENSE"
+      }
+    ],
+    "dependency": "com.elex-project:abraxas:4.0.2"
+  },
+  {
+    "project": "address",
+    "description": null,
+    "version": "2.4.0",
+    "developers": [
+      "Elex"
+    ],
+    "url": "https://github.com/elex-project/amarok",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache License Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0"
+      }
+    ],
+    "dependency": "com.elex-project.amarok:address:2.4.0"
+  },
+  {
+    "project": "Apache Commons Codec",
+    "description": "The Apache Commons Codec package contains simple encoder and decoders for\n     various formats such as Base64 and Hexadecimal.  In addition to these\n     widely used encoders and decoders, the codec package also maintains a\n     collection of phonetic encoding utilities.",
+    "version": "1.13",
+    "developers": [
+      "Henri Yandell",
+      "Tim OBrien",
+      "Scott Sanders",
+      "Rodney Waldhoff",
+      "Daniel Rall",
+      "Jon S. Stevens",
+      "Gary Gregory",
+      "David Graham",
+      "Julius Davies",
+      "Thomas Neidhart",
+      "Rob Tompkins"
+    ],
+    "url": "https://commons.apache.org/proper/commons-codec/",
+    "year": "2002",
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "commons-codec:commons-codec:1.13"
+  },
+  {
+    "project": "Apache Commons Collections",
+    "description": "The Apache Commons Collections package contains types that extend and augment the Java Collections Framework.",
+    "version": "4.4",
+    "developers": [
+      "Matt Benson",
+      "James Carman",
+      "Stephen Colebourne",
+      "Robert Burrell Donkin",
+      "Morgan Delagrange",
+      "Gary Gregory",
+      "Matthew Hawthorne",
+      "Dipanjan Laha",
+      "Geir Magnusson",
+      "Luc Maisonobe",
+      "Craig McClanahan",
+      "Thomas Neidhart",
+      "Adrian Nistor",
+      "Arun M. Thomas",
+      "Rodney Waldhoff",
+      "Henri Yandell",
+      "Rob Tompkins"
+    ],
+    "url": "https://commons.apache.org/proper/commons-collections/",
+    "year": "2001",
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.commons:commons-collections4:4.4"
+  },
+  {
+    "project": "Apache Commons Compress",
+    "description": "Apache Commons Compress software defines an API for working with\ncompression and archive formats.  These include: bzip2, gzip, pack200,\nlzma, xz, Snappy, traditional Unix Compress, DEFLATE, DEFLATE64, LZ4,\nBrotli, Zstandard and ar, cpio, jar, tar, zip, dump, 7z, arj.",
+    "version": "1.19",
+    "developers": [
+      "Torsten Curdt",
+      "Stefan Bodewig",
+      "Sebastian Bazley",
+      "Christian Grobmeier",
+      "Julius Davies",
+      "Damjan Jovanovic",
+      "Emmanuel Bourg",
+      "Gary Gregory",
+      "Rob Tompkins"
+    ],
+    "url": "https://commons.apache.org/proper/commons-compress/",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.commons:commons-compress:1.19"
+  },
+  {
+    "project": "Apache Commons Math",
+    "description": "The Apache Commons Math project is a library of lightweight, self-contained mathematics and statistics components addressing the most common practical problems not immediately available in the Java programming language or commons-lang.",
+    "version": "3.6.1",
+    "developers": [
+      "Mikkel Meyer Andersen",
+      "Bill Barker",
+      "Sébastien Brisard",
+      "Albert Davidson Chou",
+      "Mark Diggory",
+      "Robert Burrell Donkin",
+      "Otmar Ertl",
+      "Luc Maisonobe",
+      "Tim O\u0027Brien",
+      "J. Pietschmann",
+      "Dimitri Pourbaix",
+      "Gilles Sadowski",
+      "Greg Sterijevski",
+      "Brent Worden",
+      "Thomas Neidhart",
+      "Evan Ward"
+    ],
+    "url": "http://commons.apache.org/proper/commons-math/",
+    "year": "2003",
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.commons:commons-math3:3.6.1"
+  },
+  {
+    "project": "Apache POI",
+    "description": "Apache POI - Java API To Access Microsoft Format Files",
+    "version": "4.1.2",
+    "developers": [],
+    "url": "http://poi.apache.org/",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.poi:poi:4.1.2"
+  },
+  {
+    "project": "Apache POI",
+    "description": "Apache POI - Java API To Access Microsoft Format Files",
+    "version": "4.1.2",
+    "developers": [],
+    "url": "http://poi.apache.org/",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.poi:poi-ooxml:4.1.2"
+  },
+  {
+    "project": "Apache POI",
+    "description": "Apache POI - Java API To Access Microsoft Format Files",
+    "version": "4.1.2",
+    "developers": [],
+    "url": "http://poi.apache.org/",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.poi:poi-ooxml-schemas:4.1.2"
+  },
+  {
+    "project": "curvesapi",
+    "description": "Implementation of various mathematical curves that define themselves over a set of control points. The API is written in Java. The curves supported are: Bezier, B-Spline, Cardinal Spline, Catmull-Rom Spline, Lagrange, Natural Cubic Spline, and NURBS.",
+    "version": "1.06",
+    "developers": [
+      "stormdollar",
+      "Dustin Spicuzza"
+    ],
+    "url": "https://github.com/virtuald/curvesapi",
+    "year": null,
+    "licenses": [
+      {
+        "license": "BSD License",
+        "license_url": "http://opensource.org/licenses/BSD-3-Clause"
+      }
+    ],
+    "dependency": "com.github.virtuald:curvesapi:1.06"
+  },
+  {
+    "project": "http-companion",
+    "description": "Http Companion",
+    "version": "2.1.1",
+    "developers": [
+      "Elex"
+    ],
+    "url": "https://github.com/elex-project/harpy",
+    "year": null,
+    "licenses": [
+      {
+        "license": "BSD 3-Clause License",
+        "license_url": "https://github.com/elex-project/abraxas/blob/main/LICENSE"
+      }
+    ],
+    "dependency": "com.elex-project:http-companion:2.1.1"
+  },
+  {
+    "project": "Jackson-annotations",
+    "description": "Core annotations used for value types, used by Jackson data binding package.",
+    "version": "2.12.1",
+    "developers": [],
+    "url": "http://github.com/FasterXML/jackson",
+    "year": "2008",
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "com.fasterxml.jackson.core:jackson-annotations:2.12.1"
+  },
+  {
+    "project": "Jackson-core",
+    "description": "Core Jackson processing abstractions (aka Streaming API), implementation for JSON",
+    "version": "2.12.1",
+    "developers": [],
+    "url": "https://github.com/FasterXML/jackson-core",
+    "year": "2008",
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "com.fasterxml.jackson.core:jackson-core:2.12.1"
+  },
+  {
+    "project": "jackson-databind",
+    "description": "General data-binding functionality for Jackson: works on core streaming API",
+    "version": "2.12.1",
+    "developers": [],
+    "url": "http://github.com/FasterXML/jackson",
+    "year": "2008",
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "com.fasterxml.jackson.core:jackson-databind:2.12.1"
+  },
+  {
+    "project": "JetBrains Java Annotations",
+    "description": "A set of annotations used for code inspection support and code documentation.",
+    "version": "20.1.0",
+    "developers": [
+      "JetBrains Team"
+    ],
+    "url": "https://github.com/JetBrains/java-annotations",
+    "year": null,
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.jetbrains:annotations:20.1.0"
+  },
+  {
+    "project": "JSON in Java",
+    "description": "JSON is a light-weight, language independent, data interchange format.\n        See http://www.JSON.org/\n\n        The files in this package implement JSON encoders/decoders in Java.\n        It also includes the capability to convert between JSON and XML, HTTP\n        headers, Cookies, and CDL.\n\n        This is a reference implementation. There is a large number of JSON packages\n        in Java. Perhaps someday the Java community will standardize on one. Until\n        then, choose carefully.\n\n        The license includes this restriction: \"The software shall be used for good,\n        not evil.\" If your conscience cannot live with that, then choose a different\n        package.",
+    "version": "20201115",
+    "developers": [
+      "Douglas Crockford"
+    ],
+    "url": "https://github.com/douglascrockford/JSON-java",
+    "year": null,
+    "licenses": [
+      {
+        "license": "The JSON License",
+        "license_url": "http://json.org/license.html"
+      }
+    ],
+    "dependency": "org.json:json:20201115"
+  },
+  {
+    "project": "Logback Classic Module",
+    "description": "logback-classic module",
+    "version": "1.2.3",
+    "developers": [],
+    "url": null,
+    "year": null,
+    "licenses": [
+      {
+        "license": "Eclipse Public License - v 1.0",
+        "license_url": "http://www.eclipse.org/legal/epl-v10.html"
+      },
+      {
+        "license": "GNU Lesser General Public License",
+        "license_url": "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"
+      }
+    ],
+    "dependency": "ch.qos.logback:logback-classic:1.2.3"
+  },
+  {
+    "project": "Logback Core Module",
+    "description": "logback-core module",
+    "version": "1.2.3",
+    "developers": [],
+    "url": null,
+    "year": null,
+    "licenses": [
+      {
+        "license": "Eclipse Public License - v 1.0",
+        "license_url": "http://www.eclipse.org/legal/epl-v10.html"
+      },
+      {
+        "license": "GNU Lesser General Public License",
+        "license_url": "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"
+      }
+    ],
+    "dependency": "ch.qos.logback:logback-core:1.2.3"
+  },
+  {
+    "project": "SLF4J API Module",
+    "description": "The slf4j API",
+    "version": "1.7.30",
+    "developers": [],
+    "url": "http://www.slf4j.org",
+    "year": null,
+    "licenses": [
+      {
+        "license": "MIT License",
+        "license_url": "http://www.opensource.org/licenses/mit-license.php"
+      }
+    ],
+    "dependency": "org.slf4j:slf4j-api:1.7.30"
+  },
+  {
+    "project": "SparseBitSet",
+    "description": "An efficient sparse bitset implementation for Java",
+    "version": "1.2",
+    "developers": [
+      "Brett Wooldridge"
+    ],
+    "url": "https://github.com/brettwooldridge/SparseBitSet",
+    "year": null,
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "com.zaxxer:SparseBitSet:1.2"
+  },
+  {
+    "project": "xlsx",
+    "description": "Helper classes for manipulating Excel file format.",
+    "version": "1.1.1",
+    "developers": [
+      "Elex"
+    ],
+    "url": "https://github.com/elex-project/xelhua",
+    "year": null,
+    "licenses": [
+      {
+        "license": "Apache-2.0 License",
+        "license_url": "https://github.com/elex-project/xelhua/blob/main/LICENSE"
+      }
+    ],
+    "dependency": "com.elex-project:xlsx:1.1.1"
+  },
+  {
+    "project": "XmlBeans",
+    "description": "XmlBeans main jar",
+    "version": "3.1.0",
+    "developers": [
+      "Cezar Andrei",
+      "Radu Preotiuc",
+      "Radu Preotiuc",
+      "Wing Yew Poon",
+      "Jacob Danner",
+      "POI Team"
+    ],
+    "url": "https://xmlbeans.apache.org/",
+    "year": null,
+    "licenses": [
+      {
+        "license": "The Apache Software License, Version 2.0",
+        "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
+    ],
+    "dependency": "org.apache.xmlbeans:xmlbeans:3.1.0"
+  }
+]
