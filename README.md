@@ -1,6 +1,6 @@
-# tmpl-java-library
+# Project Sphinx
 
-Template for Java library project
+Jazz! for The Swing GUI
 
 ---
 developed by Elex

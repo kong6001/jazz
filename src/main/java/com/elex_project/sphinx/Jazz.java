@@ -8,6 +8,7 @@
 package com.elex_project.sphinx;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,5 +74,37 @@ public final class Jazz {
 
 	public static void centering(JFrame jFrame) {
 		jFrame.setLocationRelativeTo(null);
+	}
+
+	@Nullable
+	public static SplashScreen getSplashScreen() {
+		return SplashScreen.getSplashScreen();
+	}
+
+	@Nullable
+	public static SystemTray getSystemTray() {
+		if (SystemTray.isSupported()) {
+			return SystemTray.getSystemTray();
+		} else {
+			return null;
+		}
+	}
+
+	public static GraphicsDevice getDefaultGraphicDevice() {
+		return GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+	}
+
+	public static GraphicsDevice[] getDefaultGraphicDevices() {
+		return GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
+	}
+
+	public static void enterFullScreenMode(GraphicsDevice graphicsDevice, JFrame window) {
+		window.setUndecorated(true);
+		graphicsDevice.setFullScreenWindow(window);
+	}
+
+	public static void exitFullScreenMode(GraphicsDevice graphicsDevice, JFrame window) {
+		window.setUndecorated(false);
+		graphicsDevice.setFullScreenWindow(null);
 	}
 }
