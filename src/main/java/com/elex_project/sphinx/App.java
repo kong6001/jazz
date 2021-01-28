@@ -16,7 +16,7 @@ import java.awt.event.*;
 public class App implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
 	protected final JFrame jFrame;
 
-	private App(final JFrame jFrame) {
+	protected App(final JFrame jFrame) {
 		this.jFrame = jFrame;
 
 		this.jFrame.addWindowListener(this);
