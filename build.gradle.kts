@@ -72,9 +72,10 @@ publishing {
 				name.set("Jazz!")
 				description.set(project.description)
 				url.set("https://github.com/elex-project/sphinx")
-				properties.set(mapOf(
-						"year" to "2021"
-				))
+				organization {
+					name.set("Elex co.,Pte.")
+					url.set("https://www.elex-project.com/")
+				}
 				licenses {
 					license {
 						name.set("Apache-2.0 License")
@@ -85,7 +86,12 @@ publishing {
 					developer {
 						id.set("elex-project")
 						name.set("Elex")
+						url.set("https://www.elex.pe.kr/")
 						email.set("developer@elex-project.com")
+						organization.set("Elex Co.,Pte.")
+						organizationUrl.set("https://www.elex-project.com/")
+						roles.set(arrayListOf("Developer", "CEO"))
+						timezone.set("Asia/Seoul")
 					}
 				}
 				scm {

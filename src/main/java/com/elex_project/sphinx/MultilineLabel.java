@@ -10,6 +10,9 @@ package com.elex_project.sphinx;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * 여러 줄 라벨
+ */
 public class MultilineLabel extends JTextArea {
 	public MultilineLabel() {
 		super();
