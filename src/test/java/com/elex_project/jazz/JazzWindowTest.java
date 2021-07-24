@@ -12,14 +12,14 @@ import lombok.extern.slf4j.Slf4j;
 import javax.swing.*;
 
 @Slf4j
-class AppTest {
+class JazzWindowTest {
 
 	public static void main(String... args){
 		log.info("Test");
 		log.info("isTraceEnabled? {}", log.isTraceEnabled());
 		JPanel contentPane = new JPanel();
 		contentPane.add(new JButton("Click!"));
-		new JazzApp.Builder()
+		new JazzWindow.Builder()
 				.title("Hello")
 				.size(800,600)
 				.content(contentPane)
