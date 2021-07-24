@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.2.0"
+version = "1.2.1"
 description = "Jazz is a Swing GUI Library"
 
 repositories {
@@ -119,7 +119,7 @@ publishing {
 		}
 		maven {
 			name = "mavenGithub"
-			url = uri("https://maven.pkg.github.com/elex-project/sphinx")
+			url = uri("https://maven.pkg.github.com/elex-project/jazz")
 			credentials {
 				username = project.findProperty("github.username") as String
 				password = project.findProperty("github.token") as String
@@ -131,11 +131,11 @@ publishing {
 dependencies {
 	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 	implementation("org.slf4j:slf4j-api:1.7.30")
-	implementation("org.jetbrains:annotations:20.1.0")
+	implementation("org.jetbrains:annotations:21.0.1")
 
-	compileOnly("org.projectlombok:lombok:1.18.16")
-	annotationProcessor("org.projectlombok:lombok:1.18.16")
-	testAnnotationProcessor("org.projectlombok:lombok:1.18.16")
+	compileOnly("org.projectlombok:lombok:1.18.20")
+	annotationProcessor("org.projectlombok:lombok:1.18.20")
+	testAnnotationProcessor("org.projectlombok:lombok:1.18.20")
 
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
 	implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.1")
