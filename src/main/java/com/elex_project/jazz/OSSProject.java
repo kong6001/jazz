@@ -5,7 +5,7 @@
  * All Rights Reserved.
  */
 
-package com.elex_project.sphinx;
+package com.elex_project.jazz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;

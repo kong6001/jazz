@@ -2,11 +2,12 @@ plugins {
 	java
 	`java-library`
 	`maven-publish`
-	id("com.github.ben-manes.versions") version "0.36.0"
+	id("com.github.ben-manes.versions") version "0.39.0"
+	idea
 }
 
 group = "com.elex-project"
-version = "1.1.1"
+version = "1.2.0"
 description = "Jazz is a Swing GUI Library"
 
 repositories {
@@ -37,7 +38,7 @@ tasks.jar {
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
 				"Implementation-Vendor" to "ELEX co.,pte.",
-				"Automatic-Module-Name" to "com.elex_project.sphinx"
+				"Automatic-Module-Name" to "com.elex_project.jazz"
 		))
 	}
 }
@@ -71,7 +72,8 @@ publishing {
 			pom {
 				name.set("Jazz!")
 				description.set(project.description)
-				url.set("https://github.com/elex-project/sphinx")
+				url.set("https://github.com/elex-project/jazz")
+				inceptionYear.set("2021")
 				organization {
 					name.set("Elex co.,Pte.")
 					url.set("https://www.elex-project.com/")
@@ -79,7 +81,7 @@ publishing {
 				licenses {
 					license {
 						name.set("Apache-2.0 License")
-						url.set("https://github.com/elex-project/sphinx/blob/main/LICENSE")
+						url.set("https://github.com/elex-project/jazz/blob/main/LICENSE")
 					}
 				}
 				developers {
@@ -95,8 +97,8 @@ publishing {
 					}
 				}
 				scm {
-					connection.set("scm:git:https://github.com/elex-project/sphinx.git")
-					developerConnection.set("scm:git:https://github.com/elex-project/sphinx.git")
+					connection.set("scm:git:https://github.com/elex-project/jazz.git")
+					developerConnection.set("scm:git:https://github.com/elex-project/jazz.git")
 					url.set("https://github.com/elex-project/sphinx")
 				}
 			}

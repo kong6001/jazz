@@ -5,7 +5,7 @@
  * All Rights Reserved.
  */
 
-package com.elex_project.sphinx;
+package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -62,7 +62,7 @@ public class FileTreeView extends JTree {
 	private void init() {
 		try {
 			Image icon = ImageIO
-					.read(FileTreeView.class.getResourceAsStream("/person_black_18dp.png"))
+					.read(FileTreeView.class.getResourceAsStream("/hard_drive_network.png"))
 					.getScaledInstance(16,16, Image.SCALE_DEFAULT);
 			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 			renderer.setOpenIcon(new ImageIcon(icon));

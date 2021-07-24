@@ -5,7 +5,7 @@
  * All Rights Reserved.
  */
 
-package com.elex_project.sphinx;
+package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
 

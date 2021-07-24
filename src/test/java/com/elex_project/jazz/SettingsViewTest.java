@@ -5,11 +5,9 @@
  * All Rights Reserved.
  */
 
-package com.elex_project.sphinx;
+package com.elex_project.jazz;
 
 import javax.swing.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SettingsViewTest {
 

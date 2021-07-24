@@ -5,7 +5,7 @@
  * All Rights Reserved.
  */
 
-package com.elex_project.sphinx;
+package com.elex_project.jazz;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -13,8 +13,6 @@ import javax.swing.event.ListSelectionListener;
 
 import java.awt.*;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OSSProjectListViewTest {
 

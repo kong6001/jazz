@@ -1,4 +1,4 @@
-# Project Sphinx
+# Project Jazz
 
 Jazz! for The Swing GUI
 
