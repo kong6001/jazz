@@ -20,7 +20,7 @@ class FontComboBoxTest {
 
 		JPanel contentPane = new JPanel(new BorderLayout());
 		final JTextField textField = new JTextField("Hello 2021, 나랏말싸미 듕귁에 달아.");
-		final FontComboBox fontComboBox = new FontComboBox();
+		final JazzFontComboBox fontComboBox = new JazzFontComboBox();
 		fontComboBox.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent itemEvent) {

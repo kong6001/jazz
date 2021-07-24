@@ -21,40 +21,41 @@ import java.nio.file.Files;
 import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Vector;
-@Slf4j
-public class FileTreeView extends JTree {
 
-	public FileTreeView() {
+@Slf4j
+public class JazzFileTreeView extends JTree {
+
+	public JazzFileTreeView() {
 		super();
 		init();
 	}
 
-	public FileTreeView(final Object[] value) {
+	public JazzFileTreeView(final Object[] value) {
 		super(value);
 		init();
 	}
 
-	public FileTreeView(final Vector<?> value) {
+	public JazzFileTreeView(final Vector<?> value) {
 		super(value);
 		init();
 	}
 
-	public FileTreeView(final Hashtable<?, ?> value) {
+	public JazzFileTreeView(final Hashtable<?, ?> value) {
 		super(value);
 		init();
 	}
 
-	public FileTreeView(final TreeNode root) {
+	public JazzFileTreeView(final TreeNode root) {
 		super(root);
 		init();
 	}
 
-	public FileTreeView(final TreeNode root, final boolean asksAllowsChildren) {
+	public JazzFileTreeView(final TreeNode root, final boolean asksAllowsChildren) {
 		super(root, asksAllowsChildren);
 		init();
 	}
 
-	public FileTreeView(final TreeModel newModel) {
+	public JazzFileTreeView(final TreeModel newModel) {
 		super(newModel);
 		init();
 	}
@@ -62,7 +63,7 @@ public class FileTreeView extends JTree {
 	private void init() {
 		try {
 			Image icon = ImageIO
-					.read(FileTreeView.class.getResourceAsStream("/hard_drive_network.png"))
+					.read(JazzFileTreeView.class.getResourceAsStream("/hard_drive_network.png"))
 					.getScaledInstance(16,16, Image.SCALE_DEFAULT);
 			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 			renderer.setOpenIcon(new ImageIcon(icon));
@@ -92,13 +93,13 @@ public class FileTreeView extends JTree {
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("");
 		File[] roots = File.listRoots();
 		for (int i=0; i<roots.length; i++){
-			final FileTreeNode r = new FileTreeNode(roots[i].toPath());
+			final JazzFileTreeNode r = new JazzFileTreeNode(roots[i].toPath());
 			try {
 				Files.list(roots[i].toPath())
 						.filter((p) -> Files.isDirectory(p))
 						.sorted(Comparator.comparing(p -> p.normalize().toString()))
 						.forEachOrdered((p) -> {
-							final FileTreeNode c = new FileTreeNode(p);
+							final JazzFileTreeNode c = new JazzFileTreeNode(p);
 							r.add(c);
 						});
 			} catch (Throwable e) {} finally {

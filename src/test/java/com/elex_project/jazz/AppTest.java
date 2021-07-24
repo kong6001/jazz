@@ -19,7 +19,7 @@ class AppTest {
 		log.info("isTraceEnabled? {}", log.isTraceEnabled());
 		JPanel contentPane = new JPanel();
 		contentPane.add(new JButton("Click!"));
-		new App.Builder()
+		new JazzApp.Builder()
 				.title("Hello")
 				.size(800,600)
 				.content(contentPane)

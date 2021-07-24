@@ -7,26 +7,29 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class JSimpleFrame extends JFrame {
-	public JSimpleFrame() throws HeadlessException {
+@Slf4j
+public class JazzSimpleFrame extends JFrame {
+	public JazzSimpleFrame() throws HeadlessException {
 		super();
 		init();
 	}
 
-	public JSimpleFrame(GraphicsConfiguration gc) {
+	public JazzSimpleFrame(GraphicsConfiguration gc) {
 		super(gc);
 		init();
 	}
 
-	public JSimpleFrame(String title) throws HeadlessException {
+	public JazzSimpleFrame(String title) throws HeadlessException {
 		super(title);
 		init();
 	}
 
-	public JSimpleFrame(String title, GraphicsConfiguration gc) {
+	public JazzSimpleFrame(String title, GraphicsConfiguration gc) {
 		super(title, gc);
 		init();
 	}

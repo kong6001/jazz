@@ -7,17 +7,20 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingsView extends JPanel {
+@Slf4j
+public class JazzSettingsView extends JPanel {
 
 	private final JLabel lblIcon;
 	private final JLabel lblTitle;
-	private final MultilineLabel lblDescription;
+	private final JazzMultilineLabel lblDescription;
 
-	public SettingsView(final String title, final String description,
-	                    final Icon icon, final JComponent component) {
+	public JazzSettingsView(final String title, final String description,
+	                        final Icon icon, final JComponent component) {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
@@ -27,7 +30,7 @@ public class SettingsView extends JPanel {
 		lblTitle = new JLabel(title);
 		lblTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
 		//lblTitle.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-		lblDescription = new MultilineLabel(description);
+		lblDescription = new JazzMultilineLabel(description);
 		//lblDescription.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 		lblDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
 

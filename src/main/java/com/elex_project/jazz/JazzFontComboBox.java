@@ -7,15 +7,18 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class FontComboBox extends JComboBox<Font> {
-	public FontComboBox() {
+@Slf4j
+public class JazzFontComboBox extends JComboBox<Font> {
+	public JazzFontComboBox() {
 		this(GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts());
 	}
 
-	public FontComboBox(final Font[] fonts) {
+	public JazzFontComboBox(final Font[] fonts) {
 		super(fonts);
 
 		this.setRenderer(new FontLabel());

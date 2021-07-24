@@ -16,7 +16,7 @@ class MultilineLabelTest {
 	public static void main(String... args){
 		JFrame jFrame = new JFrame("Test");
 
-		MultilineLabel label = new MultilineLabel("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies rhoncus magna. Pellentesque laoreet nec purus nec congue. Etiam blandit, ipsum et aliquam mollis, justo velit iaculis nunc, ac auctor tellus ligula quis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec libero urna. Integer non tincidunt massa. Maecenas vitae ornare tellus, quis laoreet massa.");
+		JazzMultilineLabel label = new JazzMultilineLabel("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies rhoncus magna. Pellentesque laoreet nec purus nec congue. Etiam blandit, ipsum et aliquam mollis, justo velit iaculis nunc, ac auctor tellus ligula quis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec libero urna. Integer non tincidunt massa. Maecenas vitae ornare tellus, quis laoreet massa.");
 		JLabel labelA = new JLabel("Hello: ");
 		label.setAlignmentX(Component.LEFT_ALIGNMENT);
 		labelA.setAlignmentX(Component.LEFT_ALIGNMENT);

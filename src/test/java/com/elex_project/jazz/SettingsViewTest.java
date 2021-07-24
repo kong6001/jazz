@@ -16,11 +16,11 @@ class SettingsViewTest {
 
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
-		SettingsView settingsView1 = new SettingsView(
+		JazzSettingsView settingsView1 = new JazzSettingsView(
 				"Title 1", "Desc 1", null, new JButton("Click"));
-		SettingsView settingsView2 = new SettingsView(
+		JazzSettingsView settingsView2 = new JazzSettingsView(
 				"Title 2", "Desc 2", null, new JComboBox<String>(new String[]{"A", "B", "C"}));
-		SettingsView settingsView3 = new SettingsView(
+		JazzSettingsView settingsView3 = new JazzSettingsView(
 				"Title 3", "Desc 3", null, new JCheckBox("haha"));
 
 		contentPane.add(settingsView1);

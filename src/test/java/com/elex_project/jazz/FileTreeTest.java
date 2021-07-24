@@ -17,7 +17,7 @@ class FileTreeTest {
 		JFrame jFrame = new JFrame("Test");
 
 		JPanel contentPane = new JPanel(new BorderLayout());
-		FileTreeView fileTreeView = new FileTreeView();
+		JazzFileTreeView fileTreeView = new JazzFileTreeView();
 		contentPane.add(new JScrollPane(fileTreeView), BorderLayout.CENTER);
 
 		jFrame.setContentPane(contentPane);

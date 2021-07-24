@@ -7,29 +7,32 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * 여러 줄 라벨
  */
-public class MultilineLabel extends JTextArea {
-	public MultilineLabel() {
+@Slf4j
+public class JazzMultilineLabel extends JTextArea {
+	public JazzMultilineLabel() {
 		super();
 		init();
 	}
 
-	public MultilineLabel(String text) {
+	public JazzMultilineLabel(String text) {
 		super(text);
 		init();
 	}
 
-	public MultilineLabel(int rows, int columns) {
+	public JazzMultilineLabel(int rows, int columns) {
 		super(rows, columns);
 		init();
 	}
 
-	public MultilineLabel(String text, int rows, int columns) {
+	public JazzMultilineLabel(String text, int rows, int columns) {
 		super(text, rows, columns);
 		init();
 	}

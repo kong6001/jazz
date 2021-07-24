@@ -7,6 +7,7 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 
+@Slf4j
 public final class Jazz {
 	private Jazz() {
 	}

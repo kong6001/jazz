@@ -13,10 +13,10 @@ import javax.swing.*;
 import java.awt.event.*;
 
 @Slf4j
-public class App implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
+public class JazzApp implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
 	protected final JFrame jFrame;
 
-	protected App(final JFrame jFrame) {
+	protected JazzApp(final JFrame jFrame) {
 		this.jFrame = jFrame;
 
 		this.jFrame.addWindowListener(this);
@@ -136,8 +136,8 @@ public class App implements WindowListener, WindowStateListener, WindowFocusList
 			return this;
 		}
 
-		public App build() {
-			return new App(jFrame);
+		public JazzApp build() {
+			return new JazzApp(jFrame);
 		}
 	}
 }

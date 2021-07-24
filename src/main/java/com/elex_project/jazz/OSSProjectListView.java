@@ -7,10 +7,13 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.StringJoiner;
 
+@Slf4j
 public class OSSProjectListView extends JList<OSSProject> {
 
 	public OSSProjectListView(final OSSProject[] projects) {

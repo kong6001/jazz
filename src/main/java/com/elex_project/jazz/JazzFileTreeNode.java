@@ -7,6 +7,7 @@
 
 package com.elex_project.jazz;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -16,14 +17,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
 
-public class FileTreeNode extends DefaultMutableTreeNode {
+@Slf4j
+public class JazzFileTreeNode extends DefaultMutableTreeNode {
 	private final Path path;
 
-	public FileTreeNode(@NotNull final File file) {
+	public JazzFileTreeNode(@NotNull final File file) {
 		this(file.toPath());
 	}
 
-	public FileTreeNode(@NotNull final Path path) {
+	public JazzFileTreeNode(@NotNull final Path path) {
 		super();
 		this.path = path;
 	}
@@ -41,7 +43,7 @@ public class FileTreeNode extends DefaultMutableTreeNode {
 	@Override
 	public TreeNode getChildAt(final int i) {
 		try {
-			return new FileTreeNode((Path) Files.list(path)
+			return new JazzFileTreeNode((Path) Files.list(path)
 					.filter((p) -> Files.isDirectory(p))
 					.sorted(Comparator.comparing(p -> p.normalize().toString()))
 					.toArray()[i]);
@@ -73,7 +75,7 @@ public class FileTreeNode extends DefaultMutableTreeNode {
 					.sorted(Comparator.comparing(p -> p.normalize().toString()))
 					.toArray();
 			for (int i=0; i<children.length; i++) {
-				if (children[i].equals(((FileTreeNode)treeNode).path)){
+				if (children[i].equals(((JazzFileTreeNode)treeNode).path)){
 					return i;
 				}
 			}
