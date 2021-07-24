@@ -17,9 +17,11 @@ import javax.swing.tree.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.Objects;
 import java.util.Vector;
 
 @Slf4j
@@ -60,21 +62,24 @@ public class JazzFileTreeView extends JTree {
 		init();
 	}
 
+	public static DefaultTreeCellRenderer generateRenderer(
+			final InputStream imgOpen, final InputStream imgClosed, final InputStream imgLeaf
+			) throws IOException {
+		final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
+		renderer.setOpenIcon(new ImageIcon(ImageIO
+				.read(Objects.requireNonNull(imgOpen))
+				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+		renderer.setClosedIcon(new ImageIcon(ImageIO
+				.read(Objects.requireNonNull(imgClosed))
+				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+		renderer.setLeafIcon(new ImageIcon(ImageIO
+				.read(Objects.requireNonNull(imgLeaf))
+				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+
+		return renderer;
+	}
+
 	private void init() {
-		try {
-			Image icon = ImageIO
-					.read(JazzFileTreeView.class.getResourceAsStream("/hard_drive_network.png"))
-					.getScaledInstance(16,16, Image.SCALE_DEFAULT);
-			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-			renderer.setOpenIcon(new ImageIcon(icon));
-			renderer.setClosedIcon(new ImageIcon(icon));
-			renderer.setLeafIcon(new ImageIcon(icon));
-
-			setCellRenderer(renderer);
-
-		} catch (IOException e) {
-			log.error("IOException", e);
-		}
 
 		this.addTreeWillExpandListener(new TreeWillExpandListener() {
 			@Override
