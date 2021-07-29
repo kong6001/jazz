@@ -25,6 +25,7 @@ import java.util.Objects;
 import java.util.Vector;
 
 @Slf4j
+@Deprecated
 public class JazzFileTreeView extends JTree {
 
 	public JazzFileTreeView() {
@@ -97,17 +98,18 @@ public class JazzFileTreeView extends JTree {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("");
 		File[] roots = File.listRoots();
-		for (int i=0; i<roots.length; i++){
-			final JazzFileTreeNode r = new JazzFileTreeNode(roots[i].toPath());
+		for (File file : roots) {
+			final JazzFileTreeNode r = new JazzFileTreeNode(file.toPath());
 			try {
-				Files.list(roots[i].toPath())
+				Files.list(file.toPath())
 						.filter((p) -> Files.isDirectory(p))
 						.sorted(Comparator.comparing(p -> p.normalize().toString()))
 						.forEachOrdered((p) -> {
 							final JazzFileTreeNode c = new JazzFileTreeNode(p);
 							r.add(c);
 						});
-			} catch (Throwable e) {} finally {
+			} catch (Throwable e) {
+			} finally {
 				this.expandPath(new TreePath(r.getPath()));
 			}
 			root.add(r);
@@ -117,6 +119,7 @@ public class JazzFileTreeView extends JTree {
 		this.setModel(treeModel);
 
 		this.setRootVisible(false);
+		//this.expandRow(0);
 
 
 	}

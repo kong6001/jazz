@@ -13,25 +13,23 @@ import javax.swing.*;
 import java.awt.event.*;
 
 @Slf4j
-public class JazzWindow implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
-	protected final JFrame jFrame;
+public class JazzWindow extends JFrame
+		implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
+	//protected final JFrame jFrame;
 
-	protected JazzWindow(final JFrame jFrame) {
-		this.jFrame = jFrame;
+	protected JazzWindow() {
+		//this.jFrame = jFrame;
 
-		this.jFrame.addWindowListener(this);
-		this.jFrame.addWindowStateListener(this);
-		this.jFrame.addWindowFocusListener(this);
-		this.jFrame.addComponentListener(this);
+		this.addWindowListener(this);
+		this.addWindowStateListener(this);
+		this.addWindowFocusListener(this);
+		this.addComponentListener(this);
 	}
 
 	public void start() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				log.trace("started");
-				jFrame.setVisible(true);
-			}
+		SwingUtilities.invokeLater(() -> {
+			log.trace("started");
+			JazzWindow.this.setVisible(true);
 		});
 	}
 
@@ -106,38 +104,38 @@ public class JazzWindow implements WindowListener, WindowStateListener, WindowFo
 	}
 
 	public static class Builder {
-		private final JFrame jFrame;
+		private final JazzWindow window;
 
 		public Builder() {
-			jFrame = new JFrame();
-			jFrame.setSize(800, 600);
-			jFrame.setLocationRelativeTo(null);
-			jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			window = new JazzWindow();
+			window.setSize(800, 600);
+			window.setLocationRelativeTo(null);
+			window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		}
 
 		public Builder title(final String title) {
-			jFrame.setTitle(title);
+			window.setTitle(title);
 			return this;
 		}
 
 		public Builder size(final int w, final int h) {
-			jFrame.setSize(w, h);
+			window.setSize(w, h);
 			return this;
 		}
 
 		public Builder location(final int x, final int y) {
-			jFrame.setLocation(x, y);
+			window.setLocation(x, y);
 			return this;
 		}
 
 		public Builder content(final JComponent contentPane) {
-			jFrame.setContentPane(contentPane);
+			window.setContentPane(contentPane);
 			return this;
 		}
 
 		public JazzWindow build() {
-			return new JazzWindow(jFrame);
+			return window;
 		}
 	}
 }

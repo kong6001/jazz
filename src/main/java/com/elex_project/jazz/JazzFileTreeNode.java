@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.util.Comparator;
 
 @Slf4j
+@Deprecated
 public class JazzFileTreeNode extends DefaultMutableTreeNode {
 	private final Path path;
 
@@ -28,6 +29,10 @@ public class JazzFileTreeNode extends DefaultMutableTreeNode {
 	public JazzFileTreeNode(@NotNull final Path path) {
 		super();
 		this.path = path;
+	}
+
+	public Path getFilePath(){
+		return path;
 	}
 
 	@Override
