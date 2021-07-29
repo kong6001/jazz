@@ -32,14 +32,16 @@ public class JazzDirTreeView extends JTree {
 		if (roots.length == 1) {
 			root = new Node(roots[0].toPath());
 			this.setRootVisible(true);
-		} else {
-			root = new Node();
+		} else { // for fucking windows os.
+			root = new Node(); // virtual root
 			this.setRootVisible(false);
 			for (File f : roots) {
 				root.add(new Node(f.toPath()));
 			}
 		}
+
 		this.setModel(new DefaultTreeModel(root));
+
 		final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 		renderer.setLeafIcon(renderer.getDefaultClosedIcon());
 		this.setCellRenderer(renderer);
@@ -87,6 +89,7 @@ public class JazzDirTreeView extends JTree {
 			return (Path) getUserObject();
 		}
 
+
 		@Override
 		public int getChildCount() {
 			try {
@@ -102,7 +105,7 @@ public class JazzDirTreeView extends JTree {
 		@Override
 		public TreeNode getChildAt(final int i) {
 			try {
-				return new JazzFileTreeNode((Path) Files.list(getPathObject())
+				return new Node((Path) Files.list(getPathObject())
 						.filter((p) -> Files.isDirectory(p))
 						.sorted(Comparator.comparing(p -> p.normalize().toString()))
 						.toArray()[i]);
@@ -115,7 +118,6 @@ public class JazzDirTreeView extends JTree {
 		@Override
 		public int getIndex(final TreeNode treeNode) {
 			try {
-
 				Path[] children = (Path[]) Files.list(getPathObject())
 						.filter((p) -> Files.isDirectory(p))
 						.sorted(Comparator.comparing(p -> p.normalize().toString()))
@@ -130,6 +132,13 @@ public class JazzDirTreeView extends JTree {
 
 			}
 			return 0;
+		}
+
+		@Override
+		public String toString() {
+			if (null == getPathObject()) return "";
+			if (null == getPathObject().getFileName()) return "/";
+			return getPathObject().getFileName().toString();
 		}
 	}
 }
