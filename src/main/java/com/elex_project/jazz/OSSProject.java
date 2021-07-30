@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.List;
 
 @Data
@@ -51,7 +50,7 @@ public class OSSProject {
 	}
 
 	public OSSProject(final String title, final String developer,
-	                  final String version, final String license, final String licenseUrl){
+	                  final String version, final String license, final String licenseUrl) {
 		this();
 		this.project = title;
 		this.developers = new String[]{developer};
@@ -61,6 +60,7 @@ public class OSSProject {
 		};
 
 	}
+
 	/**
 	 * Read OSS Project info from input stream
 	 * <p>
@@ -74,7 +74,10 @@ public class OSSProject {
 	 * @throws IOException e
 	 */
 	public static @NotNull List<OSSProject> readAsList(final @NotNull InputStream inputStream) throws IOException {
-		return Arrays.asList(read(inputStream));
+		final ObjectMapper objectMapper = new ObjectMapper();
+		return objectMapper.readValue(inputStream,
+				objectMapper.getTypeFactory()
+						.constructCollectionType(List.class, OSSProject.class));
 	}
 
 	public static OSSProject[] read(final @NotNull InputStream inputStream) throws IOException {
