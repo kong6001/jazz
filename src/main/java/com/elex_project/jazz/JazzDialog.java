@@ -31,7 +31,7 @@ public class JazzDialog extends JDialog {
 	private void init() {
 		this.getContentPane().add(contentPane);
 
-		this.setPreferredSize(new Dimension(400, 300));
+		//this.setPreferredSize(new Dimension(400, 300));
 		this.setSize(new Dimension(400, 300));
 		//this.pack();
 		this.setLocationRelativeTo(jFrame);

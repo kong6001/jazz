@@ -16,10 +16,9 @@ import java.awt.event.*;
 @Slf4j
 public class JazzWindow extends JFrame
 		implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
-	//protected final JFrame jFrame;
 
 	protected JazzWindow() {
-		//this.jFrame = jFrame;
+		super();
 
 		this.addWindowListener(this);
 		this.addWindowStateListener(this);
