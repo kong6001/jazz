@@ -16,7 +16,7 @@ import java.util.StringJoiner;
 @Slf4j
 public class OSSProjectListView extends JList<OSSProject> {
 
-	public OSSProjectListView(final OSSProject[] projects) {
+	public OSSProjectListView(final java.util.List<OSSProject> projects) {
 		super();
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setLayoutOrientation(JList.VERTICAL);
@@ -29,7 +29,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 
 	static class OSSProjectListModel extends DefaultListModel<OSSProject> {
 
-		private OSSProjectListModel(final OSSProject[] projects) {
+		private OSSProjectListModel(final java.util.List<OSSProject> projects) {
 			super();
 			for (final OSSProject item : projects) {
 				this.addElement(item);
@@ -46,7 +46,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 		OSSProjectCellRenderer(){
 			super(new BorderLayout());
 
-			this.setBorder(BorderFactory.createEmptyBorder(8,16,8,16));
+			this.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
 			this.setOpaque(true);
 
 			this.vBox = new JPanel();

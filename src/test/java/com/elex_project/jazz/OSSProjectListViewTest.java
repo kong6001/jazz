@@ -21,7 +21,8 @@ class OSSProjectListViewTest {
 		JPanel contentPane = new JPanel(new BorderLayout());
 		jFrame.setContentPane(contentPane);
 
-		final OSSProject[] projects = OSSProject.read(OSSProjectListViewTest.class
+		final java.util.List<OSSProject> projects = OSSProject
+				.readAsList(OSSProjectListViewTest.class
 				.getResourceAsStream("/licenseReport.json"));
 		final OSSProjectListView listView = new OSSProjectListView(projects);
 		contentPane.add(new JScrollPane(listView), BorderLayout.CENTER);
@@ -29,7 +30,7 @@ class OSSProjectListViewTest {
 			@Override
 			public void valueChanged(final ListSelectionEvent listSelectionEvent) {
 				if (!listSelectionEvent.getValueIsAdjusting()) {
-					System.out.println(projects[listSelectionEvent.getFirstIndex()].toString());
+					System.out.println(projects.get(listSelectionEvent.getFirstIndex()).toString());
 				}
 			}
 		});

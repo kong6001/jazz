@@ -13,9 +13,12 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 @Data
 @Setter(AccessLevel.PRIVATE)
@@ -50,7 +53,7 @@ public class OSSProject {
 
 	/**
 	 * Read OSS Project info from input stream
-	 *
+	 * <p>
 	 * use with
 	 * {@code
 	 * id("com.jaredsburrows.license") version "0.8.90"
@@ -60,7 +63,11 @@ public class OSSProject {
 	 * @return OSSProject[]
 	 * @throws IOException e
 	 */
-	public static OSSProject[] read(final InputStream inputStream) throws IOException {
+	public static @NotNull List<OSSProject> readAsList(final @NotNull InputStream inputStream) throws IOException {
+		return Arrays.asList(read(inputStream));
+	}
+
+	public static OSSProject[] read(final @NotNull InputStream inputStream) throws IOException {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(inputStream, OSSProject[].class);
 	}
