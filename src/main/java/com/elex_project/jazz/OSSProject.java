@@ -9,10 +9,7 @@ package com.elex_project.jazz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -44,13 +41,26 @@ public class OSSProject {
 	@Data
 	@Setter(AccessLevel.PRIVATE)
 	@NoArgsConstructor
+	@AllArgsConstructor
 	public static class License {
 		@JsonProperty("license")
 		private String license;
 		@JsonProperty("license_url")
 		private String licenseUrl;
+
 	}
 
+	public OSSProject(final String title, final String developer,
+	                  final String version, final String license, final String licenseUrl){
+		this();
+		this.project = title;
+		this.developers = new String[]{developer};
+		this.version = version;
+		this.licenses = new License[]{
+				new License(license, licenseUrl)
+		};
+
+	}
 	/**
 	 * Read OSS Project info from input stream
 	 * <p>
