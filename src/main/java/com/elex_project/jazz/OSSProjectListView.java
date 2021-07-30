@@ -8,6 +8,7 @@
 package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,27 +16,43 @@ import java.util.StringJoiner;
 
 @Slf4j
 public class OSSProjectListView extends JList<OSSProject> {
+	public OSSProjectListView(final OSSProject[] projects) {
+		super();
+
+		this.setModel(new OSSProjectListModel(projects));
+		init();
+	}
 
 	public OSSProjectListView(final java.util.List<OSSProject> projects) {
 		super();
+
+		this.setModel(new OSSProjectListModel(projects));
+		init();
+	}
+
+	private void init() {
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setLayoutOrientation(JList.VERTICAL);
 		this.setVisibleRowCount(-1);
-
-		this.setModel(new OSSProjectListModel(projects));
 		this.setCellRenderer(new OSSProjectCellRenderer());
 
 	}
 
 	static class OSSProjectListModel extends DefaultListModel<OSSProject> {
 
-		private OSSProjectListModel(final java.util.List<OSSProject> projects) {
+		private OSSProjectListModel(final java.util.@NotNull List<OSSProject> projects) {
 			super();
 			for (final OSSProject item : projects) {
 				this.addElement(item);
 			}
 		}
 
+		private OSSProjectListModel(final OSSProject @NotNull [] projects) {
+			super();
+			for (final OSSProject item : projects) {
+				this.addElement(item);
+			}
+		}
 	}
 
 	static class OSSProjectCellRenderer extends JPanel implements ListCellRenderer<OSSProject> {
@@ -43,10 +60,10 @@ public class OSSProjectListView extends JList<OSSProject> {
 		private final JPanel vBox, line1, line2;
 		private final JLabel lblTitle, lblDeveloper, lblLicense, lblVersion;
 
-		OSSProjectCellRenderer(){
+		OSSProjectCellRenderer() {
 			super(new BorderLayout());
 
-			this.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
+			this.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 			this.setOpaque(true);
 
 			this.vBox = new JPanel();
@@ -107,7 +124,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 
 			this.setToolTipText(ossProject.getDescription());
 
-			if (isSelected){
+			if (isSelected) {
 				this.lblTitle.setForeground(jList.getSelectionForeground());
 				this.lblDeveloper.setForeground(jList.getSelectionForeground());
 				this.lblLicense.setForeground(jList.getSelectionForeground());
