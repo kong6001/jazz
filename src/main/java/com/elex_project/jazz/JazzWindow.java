@@ -10,6 +10,7 @@ package com.elex_project.jazz;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 @Slf4j
@@ -131,6 +132,16 @@ public class JazzWindow extends JFrame
 
 		public Builder content(final JComponent contentPane) {
 			window.setContentPane(contentPane);
+			return this;
+		}
+
+		public Builder menu(final JMenuBar menuBar) {
+			window.setJMenuBar(menuBar);
+			return this;
+		}
+
+		public Builder icons(final java.util.List<Image> icons) {
+			window.setIconImages(icons);
 			return this;
 		}
 

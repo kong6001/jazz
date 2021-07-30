@@ -91,9 +91,9 @@ public class OSSProjectListView extends JList<OSSProject> {
 		                                              final OSSProject ossProject, final int index, final boolean isSelected, final boolean hasFocus) {
 
 			this.setEnabled(jList.isEnabled());
-
+			StringJoiner joiner;
 			this.lblTitle.setText(ossProject.getProject());
-			StringJoiner joiner = new StringJoiner(", ");
+			joiner = new StringJoiner(", ");
 			for (String item : ossProject.getDevelopers()) {
 				joiner.add(item);
 			}
@@ -111,6 +111,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 				this.lblTitle.setForeground(jList.getSelectionForeground());
 				this.lblDeveloper.setForeground(jList.getSelectionForeground());
 				this.lblLicense.setForeground(jList.getSelectionForeground());
+				this.lblVersion.setForeground(jList.getSelectionForeground());
 
 				this.setBackground(jList.getSelectionBackground());
 				this.vBox.setBackground(jList.getSelectionBackground());
@@ -121,6 +122,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 				this.lblTitle.setForeground(jList.getForeground());
 				this.lblDeveloper.setForeground(jList.getForeground());
 				this.lblLicense.setForeground(jList.getForeground());
+				this.lblVersion.setForeground(jList.getForeground());
 
 				this.setBackground(jList.getBackground());
 				this.vBox.setBackground(jList.getBackground());
