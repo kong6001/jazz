@@ -1,8 +1,8 @@
 /*
- * Project Sphinx
+ * Project Jazz!
  *
- * Copyright (c) 2021. Elex
- * All Rights Reserved.
+ * Copyright (c) 2021-2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
  */
 
 package com.elex_project.jazz;
@@ -33,17 +33,14 @@ public class JazzClock extends JLabel {
 		final LocalDate date = LocalDate.now();
 		final LocalTime time = LocalTime.now();
 
-		JazzClock.this.setToolTipText(date.format(DATE_FORMAT));
-		JazzClock.this.setText(time.format(TIME_FORMAT));
+		SwingUtilities.invokeLater(()->{
+			JazzClock.this.setToolTipText(date.format(DATE_FORMAT));
+			JazzClock.this.setText(time.format(TIME_FORMAT));
+		});
 	}
 	private void init() {
 		update();
 		executor = Executors.newScheduledThreadPool(1);
-		executor.scheduleAtFixedRate(new Runnable() {
-			@Override
-			public void run() {
-				update();
-			}
-		}, 0,1, TimeUnit.SECONDS);
+		executor.scheduleAtFixedRate(() -> update(), 0,1, TimeUnit.SECONDS);
 	}
 }

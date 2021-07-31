@@ -1,8 +1,8 @@
 /*
- * Project Sphinx
+ * Project Jazz!
  *
- * Copyright (c) 2021. Elex
- * All Rights Reserved.
+ * Copyright (c) 2021-2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
  */
 
 package com.elex_project.jazz;
@@ -104,8 +104,8 @@ public class OSSProjectListView extends JList<OSSProject> {
 		}
 
 		@Override
-		public Component getListCellRendererComponent(final JList<? extends OSSProject> jList,
-		                                              final OSSProject ossProject, final int index, final boolean isSelected, final boolean hasFocus) {
+		public Component getListCellRendererComponent(final @NotNull JList<? extends OSSProject> jList,
+		                                              final @NotNull OSSProject ossProject, final int index, final boolean isSelected, final boolean hasFocus) {
 
 			this.setEnabled(jList.isEnabled());
 			StringJoiner joiner;

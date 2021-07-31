@@ -1,8 +1,8 @@
 /*
- * Project Sphinx
+ * Project Jazz!
  *
- * Copyright (c) 2021. Elex
- * All Rights Reserved.
+ * Copyright (c) 2021-2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
  */
 
 package com.elex_project.jazz;
@@ -74,7 +74,7 @@ public final class Jazz {
 
 	}
 
-	public static void centering(JFrame jFrame) {
+	public static void centering(final @NotNull JFrame jFrame) {
 		jFrame.setLocationRelativeTo(null);
 	}
 
@@ -100,12 +100,12 @@ public final class Jazz {
 		return GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
 	}
 
-	public static void enterFullScreenMode(GraphicsDevice graphicsDevice, JFrame window) {
+	public static void enterFullScreenMode(@NotNull GraphicsDevice graphicsDevice, @NotNull JFrame window) {
 		window.setUndecorated(true);
 		graphicsDevice.setFullScreenWindow(window);
 	}
 
-	public static void exitFullScreenMode(GraphicsDevice graphicsDevice, JFrame window) {
+	public static void exitFullScreenMode(@NotNull GraphicsDevice graphicsDevice, @NotNull JFrame window) {
 		window.setUndecorated(false);
 		graphicsDevice.setFullScreenWindow(null);
 	}

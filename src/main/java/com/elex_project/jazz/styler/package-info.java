@@ -5,4 +5,4 @@
  * https://www.elex-project.com/
  */
 
-rootProject.name = "jazz"
+package com.elex_project.jazz.styler;

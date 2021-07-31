@@ -8,18 +8,17 @@
 package com.elex_project.jazz;
 
 import javax.swing.*;
-import javax.swing.text.*;
+import javax.swing.text.StyledEditorKit;
 import java.awt.*;
 
-public class EditorPaneTest {
+public class MarkdownEditorTest {
 	public static void main(String... args){
 		JFrame jFrame = new JFrame("Test");
 
 		JPanel contentPane = new JPanel(new BorderLayout());
 
 		JazzMarkdownEditor editorPane = new JazzMarkdownEditor();
-		editorPane.setEditorKit(new StyledEditorKit());
-		//StyleUtilities styler = new StyleUtilities(editorPane.getStyledDocument());
+
 		JToolBar toolBar = new JToolBar();
 		JButton btn1 = new JButton("Get Text");
 		btn1.addActionListener(e->{
@@ -42,7 +41,7 @@ public class EditorPaneTest {
 		jFrame.setSize(800, 600);
 		jFrame.setVisible(true);
 
-		editorPane.setText("Hello");
+		//editorPane.setText("Hello");
 		//StyledDocument document = (StyledDocument) editorPane.getDocument();
 		//document.
 

@@ -8,21 +8,34 @@
 package com.elex_project.jazz;
 
 import javax.swing.*;
-
+import javax.swing.text.StyledEditorKit;
 import java.awt.*;
+import java.io.File;
+import java.util.List;
 
-class FileTreeTest {
-
+public class FileDropHelperTest {
 	public static void main(String... args){
 		JFrame jFrame = new JFrame("Test");
 
 		JPanel contentPane = new JPanel(new BorderLayout());
-		JazzFileTreeView fileTreeView = new JazzFileTreeView();
-		contentPane.add(new JScrollPane(fileTreeView), BorderLayout.CENTER);
+
+		JPanel dropFileHere = new JPanel();
+		dropFileHere.add(new JLabel("Drop here"));
+
+		FileDropHelper.makeDroppable(dropFileHere,files->{
+			for (File file : files){
+				System.out.println(file.toString());
+			}
+		});
+
+		contentPane.add(dropFileHere, BorderLayout.CENTER);
+
 
 		jFrame.setContentPane(contentPane);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setSize(800, 600);
 		jFrame.setVisible(true);
+
+
 	}
 }

@@ -1,8 +1,8 @@
 /*
- * Project Sphinx
+ * Project Jazz!
  *
- * Copyright (c) 2021. Elex
- * All Rights Reserved.
+ * Copyright (c) 2021-2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
  */
 
 package com.elex_project.jazz;
@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 @Slf4j
-public class JazzWindow extends JFrame
+public class JazzWindow extends JazzFrame
 		implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
 
 	protected JazzWindow() {
@@ -26,12 +26,7 @@ public class JazzWindow extends JFrame
 		this.addComponentListener(this);
 	}
 
-	public void start() {
-		SwingUtilities.invokeLater(() -> {
-			log.trace("started");
-			JazzWindow.this.setVisible(true);
-		});
-	}
+
 
 	@Override
 	public void windowOpened(WindowEvent windowEvent) {
@@ -108,9 +103,6 @@ public class JazzWindow extends JFrame
 
 		public Builder() {
 			window = new JazzWindow();
-			window.setSize(800, 600);
-			window.setLocationRelativeTo(null);
-			window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		}
 

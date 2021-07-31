@@ -1,3 +1,10 @@
+/*
+ * Project Jazz!
+ *
+ * Copyright (c) 2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
+ */
+
 plugins {
 	java
 	`java-library`
@@ -7,8 +14,8 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "2.6.6"
-description = "Jazz is a Swing GUI Library"
+version = "2.7.0"
+description = "Jazz is a GUI Library for Swing!"
 
 repositories {
 	maven {
@@ -139,6 +146,9 @@ dependencies {
 
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
 	implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.1")
+
+	// https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea
+	testImplementation("com.fifesoft:rsyntaxtextarea:3.1.3")
 
 	testImplementation("ch.qos.logback:logback-classic:1.2.3")
 	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
