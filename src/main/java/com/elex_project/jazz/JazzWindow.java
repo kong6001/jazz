@@ -26,8 +26,6 @@ public class JazzWindow extends JazzFrame
 		this.addComponentListener(this);
 	}
 
-
-
 	@Override
 	public void windowOpened(WindowEvent windowEvent) {
 		log.trace("windowOpened");
@@ -118,6 +116,11 @@ public class JazzWindow extends JazzFrame
 
 		public Builder location(final int x, final int y) {
 			window.setLocation(x, y);
+			return this;
+		}
+
+		public Builder centering(){
+			window.setLocationRelativeTo(null);
 			return this;
 		}
 
