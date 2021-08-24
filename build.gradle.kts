@@ -21,10 +21,6 @@ repositories {
 	maven {
 		url = uri("https://repository.elex-project.com/repository/maven")
 	}
-	maven {
-		url = uri("https://repo.maven.apache.org/maven2")
-		name = "Maven Central"
-	}
 }
 
 java {
