@@ -35,6 +35,15 @@ public final class JazzActionBuilder {
 		return new JazzAction(map, listener);
 	}
 
+	/**
+	 *
+	 * @return map
+	 * @see JazzAction#JazzAction(Map, ActionListener)
+	 */
+	public Map<String, Object> toMap() {
+		return map;
+	}
+
 	public JazzActionBuilder title(final String title) {
 		map.put(Action.NAME, title);
 		return this;
@@ -82,6 +91,11 @@ public final class JazzActionBuilder {
 
 	public JazzActionBuilder command(final String command) {
 		map.put(Action.ACTION_COMMAND_KEY, command);
+		return this;
+	}
+
+	public JazzActionBuilder listener(final ActionListener listener) {
+		this.actionListener = listener;
 		return this;
 	}
 }
