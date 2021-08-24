@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 
 @Slf4j
+@Deprecated
 public class JazzDialog extends JDialog {
 	private final JFrame jFrame;
 	private final ContentPane contentPane;

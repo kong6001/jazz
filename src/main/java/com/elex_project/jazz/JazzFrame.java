@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 
 @Slf4j
+@Deprecated
 public class JazzFrame extends JFrame {
 	public JazzFrame() throws HeadlessException {
 		super();

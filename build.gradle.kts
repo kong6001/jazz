@@ -14,12 +14,16 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "2.8.0"
+version = "2.9.0"
 description = "Jazz is a GUI Library for Swing!"
 
 repositories {
 	maven {
 		url = uri("https://repository.elex-project.com/repository/maven")
+	}
+	maven {
+		url = uri("https://repo.maven.apache.org/maven2")
+		name = "Maven Central"
 	}
 }
 
@@ -137,20 +141,20 @@ publishing {
 
 dependencies {
 	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-	implementation("org.slf4j:slf4j-api:1.7.30")
-	implementation("org.jetbrains:annotations:21.0.1")
+	implementation("org.slf4j:slf4j-api:1.7.32")
+	implementation("org.jetbrains:annotations:22.0.0")
 
 	compileOnly("org.projectlombok:lombok:1.18.20")
 	annotationProcessor("org.projectlombok:lombok:1.18.20")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.20")
 
-	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
-	implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.1")
+	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
+	implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.4")
 
 	// https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea
 	testImplementation("com.fifesoft:rsyntaxtextarea:3.1.3")
 
-	testImplementation("ch.qos.logback:logback-classic:1.2.3")
-	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+	testImplementation("ch.qos.logback:logback-classic:1.2.5")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.2")
 }

@@ -23,7 +23,7 @@ public final class EmptyIcon implements Icon {
 
 	@Override
 	public void paintIcon(Component component, Graphics graphics, int i, int i1) {
-
+		// do nothing, cause it's empty.
 	}
 
 	@Override

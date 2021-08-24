@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 @Slf4j
+@Deprecated
 public class JazzWindow extends JazzFrame
 		implements WindowListener, WindowStateListener, WindowFocusListener, ComponentListener {
 
