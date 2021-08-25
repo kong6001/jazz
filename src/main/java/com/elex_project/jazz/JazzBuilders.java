@@ -19,6 +19,10 @@ public final class JazzBuilders {
 	private JazzBuilders() {
 
 	}
+	@Contract(" -> new")
+	public static @NotNull JazzBoxPanelBuilder boxLayout() {
+		return new JazzBoxPanelBuilder();
+	}
 
 	@Contract(" -> new")
 	public static @NotNull JazzBorderPanelBuilder borderLayout() {
