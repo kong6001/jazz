@@ -20,8 +20,8 @@ import javax.swing.text.JTextComponent;
 import java.util.Optional;
 
 @Slf4j
-public final class JazzPeopertyHelper {
-	private JazzPeopertyHelper() {
+public final class PeopertyHelper {
+	private PeopertyHelper() {
 	}
 
 	public static void link(final @NotNull JLabel jLabel,
