@@ -8,12 +8,19 @@
 package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
 
 @Slf4j
 public final class JazzDialogBuilder {
+	@Contract(" -> new")
+	public static @NotNull JazzDialogBuilder builder(final JFrame owner) {
+		return new JazzDialogBuilder(owner);
+	}
+
 	private final JDialog jDialog;
 	private final JPanel jPanel = new JPanel();
 
@@ -130,16 +137,20 @@ public final class JazzDialogBuilder {
 	 * @param buttons JButton or Box.createHorizontalGlue() ...
 	 * @return builder
 	 */
-	public JazzDialogBuilder bottom(final Component... buttons) {
+	public JazzDialogBuilder bottom(final int padding, final Component... buttons) {
 		final JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
-		buttonPanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+		buttonPanel.setBorder(BorderFactory.createEmptyBorder(padding, padding, padding, padding));
 		for (final Component item : buttons) {
 			buttonPanel.add(item);
 		}
 		jPanel.add(buttonPanel, BorderLayout.SOUTH);
 		jDialog.setContentPane(this.jPanel);
 		return this;
+	}
+
+	public JazzDialogBuilder bottom(final Component... buttons) {
+		return bottom(8, buttons);
 	}
 
 	public JazzDialogBuilder center(final JComponent content) {

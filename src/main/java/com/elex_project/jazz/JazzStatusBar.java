@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 
 @Slf4j
+@Deprecated
 public class JazzStatusBar extends JPanel {
 	private final JPanel leftPanel, rightPanel;
 

@@ -8,12 +8,19 @@
 package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
 
 @Slf4j
 public final class JazzFrameBuilder {
+	@Contract(" -> new")
+	public static @NotNull JazzFrameBuilder builder() {
+		return new JazzFrameBuilder();
+	}
+
 	private final JFrame jFrame;
 
 	public JazzFrameBuilder() {

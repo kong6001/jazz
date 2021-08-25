@@ -18,6 +18,10 @@ import java.util.Map;
 
 @Slf4j
 public final class JazzActionBuilder {
+	@Contract(value = " -> new", pure = true)
+	public static @NotNull JazzActionBuilder builder() {
+		return new JazzActionBuilder();
+	}
 
 	private final Map<String, Object> map;
 	private ActionListener actionListener;
@@ -36,7 +40,6 @@ public final class JazzActionBuilder {
 	}
 
 	/**
-	 *
 	 * @return map
 	 * @see JazzAction#JazzAction(Map, ActionListener)
 	 */
@@ -98,4 +101,5 @@ public final class JazzActionBuilder {
 		this.actionListener = listener;
 		return this;
 	}
+
 }
