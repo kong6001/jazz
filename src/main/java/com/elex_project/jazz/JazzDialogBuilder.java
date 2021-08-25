@@ -132,15 +132,17 @@ public final class JazzDialogBuilder {
 	}
 
 	/**
-	 * Add buttons within H-Box layout. And with 8px paddings.
+	 * Add buttons within Flow layout. And with 8px paddings.
 	 *
 	 * @param buttons JButton or Box.createHorizontalGlue() ...
 	 * @return builder
 	 */
-	public JazzDialogBuilder bottom(final int padding, final Component... buttons) {
-		final JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
-		buttonPanel.setBorder(BorderFactory.createEmptyBorder(padding, padding, padding, padding));
+	public JazzDialogBuilder bottom(final int border, final Component... buttons) {
+		final JPanel buttonPanel = JazzBuilders.flowLayout()
+				.gap(4,2)
+				.alignTrailing()
+				.border(border)
+				.build();
 		for (final Component item : buttons) {
 			buttonPanel.add(item);
 		}
@@ -150,7 +152,7 @@ public final class JazzDialogBuilder {
 	}
 
 	public JazzDialogBuilder bottom(final Component... buttons) {
-		return bottom(8, buttons);
+		return bottom(4, buttons);
 	}
 
 	public JazzDialogBuilder center(final JComponent content) {
