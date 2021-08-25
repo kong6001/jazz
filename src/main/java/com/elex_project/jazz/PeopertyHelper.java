@@ -8,6 +8,7 @@
 package com.elex_project.jazz;
 
 import com.elex_project.dwarf.BooleanProperty;
+import com.elex_project.dwarf.IntegerProperty;
 import com.elex_project.dwarf.PropertyListener;
 import com.elex_project.dwarf.StringProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public final class PeopertyHelper {
 
 	public static void link(final @NotNull AbstractButton checkBox,
 	                        final @NotNull BooleanProperty booleanProperty) {
-		checkBox.setSelected(Optional.of(booleanProperty.get()).orElse(false));
+		checkBox.setSelected(Optional.ofNullable(booleanProperty.get()).orElse(false));
 		booleanProperty.addListener((PropertyListener<Boolean>) (oldValue, newValue) -> checkBox.setSelected(newValue));
 		checkBox.addChangeListener(changeEvent -> booleanProperty.set(checkBox.isSelected()));
 
@@ -67,5 +68,21 @@ public final class PeopertyHelper {
 
 	}
 
+	public static void link(final @NotNull JProgressBar jProgressBar,
+	                        final @NotNull IntegerProperty integerProperty) {
+		setProgress(jProgressBar, integerProperty);
+		integerProperty.addListener((PropertyListener<Integer>) (oldValue, newValue)
+				-> setProgress(jProgressBar, integerProperty));
+	}
 
+	private static void setProgress(final @NotNull JProgressBar jProgressBar,
+	                        final @NotNull IntegerProperty integerProperty) {
+		Optional.ofNullable(integerProperty.get())
+				.ifPresentOrElse(integer -> {
+					jProgressBar.setIndeterminate(false);
+					jProgressBar.setValue(integer);
+				}, () -> {
+					jProgressBar.setIndeterminate(true);
+				});
+	}
 }

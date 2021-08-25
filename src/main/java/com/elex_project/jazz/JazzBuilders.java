@@ -19,9 +19,30 @@ public final class JazzBuilders {
 	private JazzBuilders() {
 
 	}
+
 	@Contract(" -> new")
 	public static @NotNull JazzBoxPanelBuilder boxLayout() {
 		return new JazzBoxPanelBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzFlowPanelBuilder flowLayout() {
+		return new JazzFlowPanelBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzCardPanelBuilder cardLayout() {
+		return new JazzCardPanelBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzGridPanelBuilder gridLayout() {
+		return new JazzGridPanelBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzGridBagPanelBuilder gridBagLayout() {
+		return new JazzGridBagPanelBuilder();
 	}
 
 	@Contract(" -> new")

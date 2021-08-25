@@ -7,6 +7,7 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.IntegerProperty;
 import com.elex_project.dwarf.StringProperty;
 
 import javax.swing.*;
@@ -36,6 +37,8 @@ class JazzStatusBarBuilderTest {
 				.addGlue()
 				.add("Hihihi")
 				.addGap(4)
+						.addProgressBar(new IntegerProperty(10),0,100,
+								60,14)
 				.add(new StringProperty("Mmm.."))
 				.build(), BorderLayout.SOUTH);
 
