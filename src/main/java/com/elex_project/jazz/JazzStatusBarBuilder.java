@@ -7,6 +7,8 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.EnumProperty;
+import com.elex_project.dwarf.IntegerProperty;
 import com.elex_project.dwarf.PropertyListener;
 import com.elex_project.dwarf.StringProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -84,9 +86,29 @@ public final class JazzStatusBarBuilder {
 	public JazzStatusBarBuilder add(final @NotNull StringProperty property) {
 		final JLabel jLabel = new JLabel();
 		jLabel.setText(property.get());
-		property.addListener((PropertyListener<String>) (oldValue, newValue) -> jLabel.setText(newValue));
+		property.addListener((PropertyListener<String>) (oldValue, newValue)
+				-> jLabel.setText(newValue));
 		statusBar.add(jLabel);
 		return this;
 	}
+
+	public JazzStatusBarBuilder add(final @NotNull IntegerProperty property) {
+		final JLabel jLabel = new JLabel();
+		jLabel.setText(String.valueOf(property.get()));
+		property.addListener((PropertyListener<Integer>) (oldValue, newValue)
+				-> jLabel.setText(String.valueOf(newValue)));
+		statusBar.add(jLabel);
+		return this;
+	}
+
+	public <T extends Enum<?>> JazzStatusBarBuilder add(final @NotNull EnumProperty<T> property) {
+		final JLabel jLabel = new JLabel();
+		jLabel.setText(property.get().toString());
+		property.addListener((PropertyListener<T>) (oldValue, newValue)
+				-> jLabel.setText(newValue.toString()));
+		statusBar.add(jLabel);
+		return this;
+	}
+
 
 }
