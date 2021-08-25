@@ -137,7 +137,7 @@ public final class JazzDialogBuilder {
 	 * @param buttons JButton or Box.createHorizontalGlue() ...
 	 * @return builder
 	 */
-	public JazzDialogBuilder bottom(final int border, final Component... buttons) {
+	public JazzDialogBuilder bottom(final int border, final JComponent... buttons) {
 		final JPanel buttonPanel = JazzBuilders.flowLayout()
 				.gap(4,2)
 				.alignTrailing()
@@ -151,7 +151,7 @@ public final class JazzDialogBuilder {
 		return this;
 	}
 
-	public JazzDialogBuilder bottom(final Component... buttons) {
+	public JazzDialogBuilder bottom(final JComponent... buttons) {
 		return bottom(4, buttons);
 	}
 

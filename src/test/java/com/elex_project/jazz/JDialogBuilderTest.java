@@ -28,7 +28,7 @@ class JDialogBuilderTest {
 				new JazzDialogBuilder(jFrame)
 						.center(new JLabel("Hello"))
 						.bottom(new JButton("Close"),
-								Box.createHorizontalGlue(),
+								//Box.createHorizontalGlue(),
 								new JButton("OK"))
 						.buildAndLaunch();
 			}
