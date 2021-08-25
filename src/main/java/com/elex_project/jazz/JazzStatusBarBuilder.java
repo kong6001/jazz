@@ -58,6 +58,16 @@ public final class JazzStatusBarBuilder {
 		return this;
 	}
 
+	public JazzStatusBarBuilder alignX(final float align) {
+		statusBar.setAlignmentX(align);
+		return this;
+	}
+
+	public JazzStatusBarBuilder alignY(final float align) {
+		statusBar.setAlignmentY(align);
+		return this;
+	}
+
 	public JazzStatusBarBuilder add(final JComponent child) {
 		statusBar.add(child);
 		return this;

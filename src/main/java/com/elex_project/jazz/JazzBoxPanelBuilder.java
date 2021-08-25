@@ -63,13 +63,13 @@ public final class JazzBoxPanelBuilder {
 		return this;
 	}
 
-	public JazzBoxPanelBuilder alignX(final float alignX) {
-		jPanel.setAlignmentX(alignX);
+	public JazzBoxPanelBuilder alignX(final float align) {
+		jPanel.setAlignmentX(align);
 		return this;
 	}
 
-	public JazzBoxPanelBuilder alignY(final float alignY) {
-		jPanel.setAlignmentY(alignY);
+	public JazzBoxPanelBuilder alignY(final float align) {
+		jPanel.setAlignmentY(align);
 		return this;
 	}
 

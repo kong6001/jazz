@@ -37,7 +37,14 @@ public final class JazzToolBarBuilder {
 		jToolBar.setFloatable(true);
 		return this;
 	}
-
+	public JazzToolBarBuilder alignX(final float align) {
+		jToolBar.setAlignmentX(align);
+		return this;
+	}
+	public JazzToolBarBuilder alignY(final float align) {
+		jToolBar.setAlignmentY(align);
+		return this;
+	}
 	public JazzToolBarBuilder add(final Action action) {
 		jToolBar.add(action);
 		return this;
