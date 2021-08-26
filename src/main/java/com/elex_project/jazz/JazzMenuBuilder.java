@@ -46,13 +46,13 @@ public final class JazzMenuBuilder {
 		return parent;
 	}
 
-	public JMenuBar build() {
+	public JMenuBar buildMenuBar() {
 		if (null == parent) throw new IllegalStateException("This builder wasn't called from MenuBar builder.");
 
 		return parent.build();
 	}
 
-	public JMenu toMenu() {
+	public JMenu build() {
 		return jMenu;
 	}
 

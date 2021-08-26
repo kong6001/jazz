@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "2.14.2"
+version = "2.14.3"
 description = "Jazz is a GUI Library for Swing!"
 
 repositories {

@@ -25,8 +25,8 @@ class JazzStatusBarBuilderTest {
 				.separator()
 				.item(new JazzMenuBuilder("Oh")
 						.item("dd", null)
-						.toMenu())
-				.build();
+						.build())
+				.buildMenuBar();
 
 		final JPanel jPanel = new JPanel();
 		jPanel.setLayout(new BorderLayout());
@@ -37,8 +37,8 @@ class JazzStatusBarBuilderTest {
 				.addGlue()
 				.add("Hihihi")
 				.addGap(4)
-						.addProgressBar(new IntegerProperty(10),0,100,
-								60,14)
+/*						.addProgressBar(new IntegerProperty(10),0,100,
+								60,14)*/
 				.add(new StringProperty("Mmm.."))
 				.build(), BorderLayout.SOUTH);
 
