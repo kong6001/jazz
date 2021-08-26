@@ -28,7 +28,7 @@ public final class JazzFrameBuilder {
 		this.jFrame.setTitle("Jazz!");
 		this.jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.jFrame.setSize(800, 600);
-		Jazz.centering(jFrame);
+		this.jFrame.setLocationByPlatform(true);
 	}
 
 	public JazzFrameBuilder title(final String title) {

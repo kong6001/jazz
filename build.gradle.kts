@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "2.14.3"
+version = "2.15.0"
 description = "Jazz is a GUI Library for Swing!"
 
 repositories {
@@ -139,7 +139,7 @@ dependencies {
 	implementation("org.slf4j:slf4j-api:1.7.32")
 	implementation("org.jetbrains:annotations:22.0.0")
 
-	implementation("com.elex-project:abraxas:4.8.1")
+	implementation("com.elex-project:abraxas:4.8.2")
 	implementation("com.elex-project:dwarf:2.1.0")
 
 	compileOnly("org.projectlombok:lombok:1.18.20")

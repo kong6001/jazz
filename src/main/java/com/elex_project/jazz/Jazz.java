@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URI;
 
@@ -108,5 +109,13 @@ public final class Jazz {
 	public static void exitFullScreenMode(@NotNull GraphicsDevice graphicsDevice, @NotNull JFrame window) {
 		window.setUndecorated(false);
 		graphicsDevice.setFullScreenWindow(null);
+	}
+
+	public static @NotNull BufferedImage capture(final @NotNull Component component){
+		final BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+		component.paint(image.getGraphics());
+
+		return image;
 	}
 }
