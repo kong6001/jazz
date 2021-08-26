@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileView;
 import java.io.File;
 import java.nio.file.Path;
 
@@ -62,6 +63,11 @@ public final class JazzFileChooserBuilder {
 		return this;
 	}
 
+	public JazzFileChooserBuilder fileView(final FileView fileView) {
+		jFileChooser.setFileView(fileView);
+		return this;
+	}
+
 	@Contract("_ -> this")
 	public JazzFileChooserBuilder fileFilter(final FileFilter @NotNull ... filters) {
 		jFileChooser.setFileFilter(filters[0]);
@@ -75,6 +81,21 @@ public final class JazzFileChooserBuilder {
 
 	public JazzFileChooserBuilder withHiddenFiles() {
 		jFileChooser.setFileHidingEnabled(true);
+		return this;
+	}
+
+	public JazzFileChooserBuilder filesOnly() {
+		jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		return this;
+	}
+
+	public JazzFileChooserBuilder directoriesOnly() {
+		jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		return this;
+	}
+
+	public JazzFileChooserBuilder filesAndDirectories() {
+		jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		return this;
 	}
 }
