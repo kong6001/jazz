@@ -35,6 +35,11 @@ public final class JazzMenuBuilder {
 		jMenu = new JMenu(name);
 	}
 
+	public JazzMenuBuilder() {
+		this.parent = null;
+		jMenu = new JMenu();
+	}
+
 	public JazzMenuBuilder(final Action action) {
 		this.parent = null;
 		jMenu = new JMenu(action);
@@ -54,6 +59,18 @@ public final class JazzMenuBuilder {
 
 	public JMenu build() {
 		return jMenu;
+	}
+
+	public JazzMenuBuilder title(final String title) {
+		jMenu.setText(title);
+
+		return this;
+	}
+
+	public JazzMenuBuilder icon(final Icon icon) {
+		jMenu.setIcon(icon);
+
+		return this;
 	}
 
 	public JazzMenuBuilder item(final JMenuItem menuItem) {

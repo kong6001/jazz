@@ -13,34 +13,43 @@ import javax.swing.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.ExecutorService;
+import java.time.temporal.ChronoUnit;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class JazzClock extends JLabel {
-	private ScheduledExecutorService executor;
+	private final ScheduledExecutorService executor;
 
-	private static DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	private static DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss");
+	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss");
+
 	public JazzClock() {
 		super();
+		executor = Executors.newScheduledThreadPool(1);
+
 		init();
 	}
 
-	private void update(){
+	private void update() {
 		final LocalDate date = LocalDate.now();
 		final LocalTime time = LocalTime.now();
 
-		SwingUtilities.invokeLater(()->{
+		SwingUtilities.invokeLater(() -> {
 			JazzClock.this.setToolTipText(date.format(DATE_FORMAT));
 			JazzClock.this.setText(time.format(TIME_FORMAT));
 		});
 	}
+
 	private void init() {
 		update();
-		executor = Executors.newScheduledThreadPool(1);
-		executor.scheduleAtFixedRate(() -> update(), 0,1, TimeUnit.SECONDS);
+		executor.scheduleAtFixedRate(() -> update(),
+				ChronoUnit.MILLIS.between(LocalTime.now(), LocalTime.now().plusSeconds(1).withNano(0)),
+				1000, TimeUnit.MILLISECONDS);
+	}
+
+	public void dispose(){
+		executor.shutdown();
 	}
 }

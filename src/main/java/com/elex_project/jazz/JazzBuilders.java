@@ -56,6 +56,11 @@ public final class JazzBuilders {
 	}
 
 	@Contract(" -> new")
+	public static @NotNull JazzSplitPaneBuilder splitLayout() {
+		return new JazzSplitPaneBuilder();
+	}
+
+	@Contract(" -> new")
 	public static @NotNull JazzStatusBarBuilder statusBar() {
 		return new JazzStatusBarBuilder();
 	}
@@ -71,12 +76,26 @@ public final class JazzBuilders {
 	}
 
 	@Contract(" -> new")
+	public static @NotNull JazzMenuBuilder menu() {
+		return new JazzMenuBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzPopupMenuBuilder popupMenu() {
+		return new JazzPopupMenuBuilder();
+	}
+
+	@Contract(" -> new")
 	public static @NotNull JazzActionBuilder action() {
 		return new JazzActionBuilder();
 	}
 
 	public static @NotNull JazzDialogBuilder dialog(final JFrame parent) {
 		return new JazzDialogBuilder(parent);
+	}
+
+	public static @NotNull JazzOptionDialogBuilder optionDialog() {
+		return new JazzOptionDialogBuilder();
 	}
 
 	@Contract(" -> new")
@@ -88,4 +107,15 @@ public final class JazzBuilders {
 	public static @NotNull JazzFileChooserBuilder fileChooser() {
 		return new JazzFileChooserBuilder();
 	}
+
+	@Contract(" -> new")
+	public static @NotNull GridBagConstraintsBuilder constraints() {
+		return new GridBagConstraintsBuilder();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzButtonBuilder button() {
+		return new JazzButtonBuilder();
+	}
+
 }

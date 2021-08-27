@@ -38,6 +38,18 @@ public final class JazzBorderPanelBuilder {
 		return this;
 	}
 
+	public JazzBorderPanelBuilder border(final int border) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(border, border, border, border));
+		return this;
+	}
+
+	public JazzBorderPanelBuilder border(final int t, final int l, final int b, final int r) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(t, l, b, r));
+		return this;
+	}
+
 	public JazzBorderPanelBuilder top(final JComponent child) {
 		jPanel.add(child, BorderLayout.NORTH);
 		return this;
