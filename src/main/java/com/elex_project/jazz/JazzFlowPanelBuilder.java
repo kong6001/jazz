@@ -67,18 +67,18 @@ public final class JazzFlowPanelBuilder {
 		return this;
 	}
 
-	public JazzFlowPanelBuilder alignCenter() {
-		layout.setAlignment(FlowLayout.CENTER);
-		return this;
+	public enum Align{
+		CENTER(FlowLayout.CENTER),
+		LEADING(FlowLayout.LEADING),
+		TRAILING(FlowLayout.TRAILING);
+		private final int value;
+		Align(int value){
+			this.value = value;
+		}
 	}
-
-	public JazzFlowPanelBuilder alignLeading() {
-		layout.setAlignment(FlowLayout.LEADING);
-		return this;
-	}
-
-	public JazzFlowPanelBuilder alignTrailing() {
-		layout.setAlignment(FlowLayout.TRAILING);
+	@Contract("_ -> this")
+	public JazzFlowPanelBuilder align(final @NotNull Align align) {
+		layout.setAlignment(align.value);
 		return this;
 	}
 

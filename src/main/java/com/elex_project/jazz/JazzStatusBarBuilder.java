@@ -104,7 +104,7 @@ public final class JazzStatusBarBuilder {
 
 	public JazzStatusBarBuilder add(final @NotNull IntegerProperty property) {
 		final JLabel jLabel = new JLabel();
-		jLabel.setText(String.valueOf(property.get()));
+		jLabel.setText(null == property.get() ? null : String.valueOf(property.get()));
 		property.addListener((PropertyListener<Integer>) (oldValue, newValue)
 				-> jLabel.setText(String.valueOf(newValue)));
 		statusBar.add(jLabel);
@@ -113,7 +113,7 @@ public final class JazzStatusBarBuilder {
 
 	public <T extends Enum<?>> JazzStatusBarBuilder add(final @NotNull EnumProperty<T> property) {
 		final JLabel jLabel = new JLabel();
-		jLabel.setText(property.get().toString());
+		jLabel.setText(null == property.get() ? null : property.get().toString());
 		property.addListener((PropertyListener<T>) (oldValue, newValue)
 				-> jLabel.setText(newValue.toString()));
 		statusBar.add(jLabel);

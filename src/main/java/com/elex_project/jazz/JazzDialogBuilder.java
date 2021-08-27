@@ -139,8 +139,8 @@ public final class JazzDialogBuilder {
 	 */
 	public JazzDialogBuilder bottom(final int border, final JComponent... buttons) {
 		final JPanel buttonPanel = JazzBuilders.flowLayout()
-				.gap(4,2)
-				.alignTrailing()
+				.gap(4, 2)
+				.align(JazzFlowPanelBuilder.Align.TRAILING)
 				.border(border)
 				.build();
 		for (final Component item : buttons) {

@@ -29,7 +29,7 @@ class JazzFlowPanelBuilderTest {
 						.add(new JButton("A8"))
 						.add(new JButton("A9"))
 						.add(new JButton("A10"))
-						.alignTrailing()
+						.align(JazzFlowPanelBuilder.Align.TRAILING)
 						.gap(4,2)
 						.build())
 				.buildAndLaunch();

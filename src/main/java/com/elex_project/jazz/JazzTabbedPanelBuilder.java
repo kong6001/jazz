@@ -47,33 +47,38 @@ public final class JazzTabbedPanelBuilder {
 		return this;
 	}
 
-	public JazzTabbedPanelBuilder top() {
-		jTabbedPane.setTabPlacement(JTabbedPane.TOP);
+	public enum Placement {
+		TOP(JTabbedPane.TOP),
+		LEFT(JTabbedPane.LEFT),
+		RIGHT(JTabbedPane.RIGHT),
+		BOTTOM(JTabbedPane.BOTTOM);
+		private final int value;
+
+		Placement(int value) {
+			this.value = value;
+		}
+	}
+
+	@Contract("_ -> this")
+	public JazzTabbedPanelBuilder place(final @NotNull Placement placement) {
+		jTabbedPane.setTabPlacement(placement.value);
 		return this;
 	}
 
-	public JazzTabbedPanelBuilder left() {
-		jTabbedPane.setTabPlacement(JTabbedPane.LEFT);
+	public enum Layout {
+		WRAP(JTabbedPane.WRAP_TAB_LAYOUT),
+		SCROLL(JTabbedPane.SCROLL_TAB_LAYOUT);
+		private final int value;
+
+		Layout(int value) {
+			this.value = value;
+		}
+	}
+
+	@Contract("_ -> this")
+	public JazzTabbedPanelBuilder layout(@NotNull Layout layout) {
+		jTabbedPane.setTabLayoutPolicy(layout.value);
 		return this;
 	}
 
-	public JazzTabbedPanelBuilder right() {
-		jTabbedPane.setTabPlacement(JTabbedPane.RIGHT);
-		return this;
-	}
-
-	public JazzTabbedPanelBuilder bottom() {
-		jTabbedPane.setTabPlacement(JTabbedPane.BOTTOM);
-		return this;
-	}
-
-	public JazzTabbedPanelBuilder wrap() {
-		jTabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
-		return this;
-	}
-
-	public JazzTabbedPanelBuilder scroll() {
-		jTabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-		return this;
-	}
 }

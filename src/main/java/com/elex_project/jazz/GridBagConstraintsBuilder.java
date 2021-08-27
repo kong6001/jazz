@@ -25,12 +25,21 @@ public final class GridBagConstraintsBuilder {
 
 	public GridBagConstraintsBuilder() {
 		constraints = new GridBagConstraints();
-		//constraints.gridx = GridBagConstraints.RELATIVE;
-		//constraints.gridy = GridBagConstraints.RELATIVE;
+		constraints.gridx = GridBagConstraints.RELATIVE;
+		constraints.gridy = GridBagConstraints.RELATIVE;
+		constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.anchor = GridBagConstraints.LINE_START;
 	}
 
 	public GridBagConstraints build() {
 		return constraints;
+	}
+
+	public GridBagConstraintsBuilder grid(@Range(from = 0, to = Integer.MAX_VALUE) final int x,
+	                                      @Range(from = 0, to = Integer.MAX_VALUE) final int y) {
+		constraints.gridx = x;
+		constraints.gridy = y;
+		return this;
 	}
 
 	public GridBagConstraintsBuilder x(@Range(from = 0, to = Integer.MAX_VALUE) final int x) {
@@ -48,13 +57,19 @@ public final class GridBagConstraintsBuilder {
 		return this;
 	}
 
-	public GridBagConstraintsBuilder widthLast() {
-		constraints.gridwidth = GridBagConstraints.REMAINDER;
-		return this;
+	public enum GridSize {
+		LAST(GridBagConstraints.REMAINDER),
+		NEXT_TO_LAST(GridBagConstraints.RELATIVE);
+		private final int value;
+
+		GridSize(int value) {
+			this.value = value;
+		}
 	}
 
-	public GridBagConstraintsBuilder widthNextToLast() {
-		constraints.gridwidth = GridBagConstraints.RELATIVE;
+	@Contract("_ -> this")
+	public GridBagConstraintsBuilder width(final @NotNull GridSize width) {
+		constraints.gridwidth = width.value;
 		return this;
 	}
 
@@ -63,28 +78,30 @@ public final class GridBagConstraintsBuilder {
 		return this;
 	}
 
-	public GridBagConstraintsBuilder heightLast() {
-		constraints.gridheight = GridBagConstraints.REMAINDER;
+	@Contract("_ -> this")
+	public GridBagConstraintsBuilder height(final @NotNull GridSize height) {
+		constraints.gridheight = height.value;
 		return this;
 	}
 
-	public GridBagConstraintsBuilder heightNextToLast() {
-		constraints.gridheight = GridBagConstraints.RELATIVE;
-		return this;
+
+	public enum Fill {
+		VERTICAL(GridBagConstraints.VERTICAL),
+		HORIZONTAL(GridBagConstraints.HORIZONTAL),
+		BOTH(GridBagConstraints.BOTH),
+		NONE(GridBagConstraints.NONE);
+
+		private final int value;
+
+		Fill(int value) {
+			this.value = value;
+		}
+
 	}
 
-	public GridBagConstraintsBuilder fillVertical() {
-		constraints.fill = GridBagConstraints.VERTICAL;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder fillHorizontal() {
-		constraints.fill = GridBagConstraints.HORIZONTAL;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder fillBoth() {
-		constraints.fill = GridBagConstraints.BOTH;
+	@Contract("_ -> this")
+	public GridBagConstraintsBuilder fill(final @NotNull Fill fill) {
+		constraints.fill = fill.value;
 		return this;
 	}
 
@@ -112,48 +129,42 @@ public final class GridBagConstraintsBuilder {
 		return this;
 	}
 
-	public GridBagConstraintsBuilder anchorToFirstLineStart() {
-		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
+	public GridBagConstraintsBuilder insets(final int t, final int l, final int b, final int r) {
+		constraints.insets = new Insets(t, l, b, r);
 		return this;
 	}
 
-	public GridBagConstraintsBuilder anchorToLineStart() {
-		constraints.anchor = GridBagConstraints.LINE_START;
+	public GridBagConstraintsBuilder insets(final int hInset, final int vInset) {
+		constraints.insets = new Insets(vInset, hInset, vInset, hInset);
 		return this;
 	}
 
-	public GridBagConstraintsBuilder anchorToLastLineStart() {
-		constraints.anchor = GridBagConstraints.LAST_LINE_START;
+	public GridBagConstraintsBuilder insets(final int insets) {
+		constraints.insets = new Insets(insets, insets, insets, insets);
 		return this;
 	}
 
-	public GridBagConstraintsBuilder anchorToPageStart() {
-		constraints.anchor = GridBagConstraints.PAGE_START;
-		return this;
+	public enum Anchor {
+		FIRST_LINE_START(GridBagConstraints.FIRST_LINE_START),
+		LINE_START(GridBagConstraints.LINE_START),
+		LAST_LINE_START(GridBagConstraints.LAST_LINE_START),
+		PAGE_START(GridBagConstraints.PAGE_START),
+		CENTER(GridBagConstraints.CENTER),
+		PAGE_END(GridBagConstraints.PAGE_END),
+		FIRST_LINE_END(GridBagConstraints.FIRST_LINE_END),
+		LINE_END(GridBagConstraints.LINE_END),
+		LAST_LINE_END(GridBagConstraints.LAST_LINE_END);
+
+		private final int value;
+
+		Anchor(int value) {
+			this.value = value;
+		}
 	}
 
-	public GridBagConstraintsBuilder anchorToCenter() {
-		constraints.anchor = GridBagConstraints.CENTER;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder anchorToPageEnd() {
-		constraints.anchor = GridBagConstraints.PAGE_END;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder anchorToFirstLineEnd() {
-		constraints.anchor = GridBagConstraints.FIRST_LINE_END;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder anchorToLineEnd() {
-		constraints.anchor = GridBagConstraints.LINE_END;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder anchorToLastLineEnd() {
-		constraints.anchor = GridBagConstraints.LAST_LINE_END;
+	@Contract("_ -> this")
+	public GridBagConstraintsBuilder anchor(final @NotNull Anchor anchor) {
+		constraints.anchor = anchor.value;
 		return this;
 	}
 
