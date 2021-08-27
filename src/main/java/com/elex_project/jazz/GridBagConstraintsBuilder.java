@@ -16,11 +16,6 @@ import java.awt.*;
 
 @Slf4j
 public final class GridBagConstraintsBuilder {
-	@Contract(" -> new")
-	public static @NotNull GridBagConstraintsBuilder builder() {
-		return new GridBagConstraintsBuilder();
-	}
-
 	private final GridBagConstraints constraints;
 
 	public GridBagConstraintsBuilder() {
@@ -29,6 +24,11 @@ public final class GridBagConstraintsBuilder {
 		constraints.gridy = GridBagConstraints.RELATIVE;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.anchor = GridBagConstraints.LINE_START;
+	}
+
+	@Contract(" -> new")
+	public static @NotNull GridBagConstraintsBuilder builder() {
+		return new GridBagConstraintsBuilder();
 	}
 
 	public GridBagConstraints build() {
@@ -57,16 +57,6 @@ public final class GridBagConstraintsBuilder {
 		return this;
 	}
 
-	public enum GridSize {
-		LAST(GridBagConstraints.REMAINDER),
-		NEXT_TO_LAST(GridBagConstraints.RELATIVE);
-		private final int value;
-
-		GridSize(int value) {
-			this.value = value;
-		}
-	}
-
 	@Contract("_ -> this")
 	public GridBagConstraintsBuilder width(final @NotNull GridSize width) {
 		constraints.gridwidth = width.value;
@@ -82,21 +72,6 @@ public final class GridBagConstraintsBuilder {
 	public GridBagConstraintsBuilder height(final @NotNull GridSize height) {
 		constraints.gridheight = height.value;
 		return this;
-	}
-
-
-	public enum Fill {
-		VERTICAL(GridBagConstraints.VERTICAL),
-		HORIZONTAL(GridBagConstraints.HORIZONTAL),
-		BOTH(GridBagConstraints.BOTH),
-		NONE(GridBagConstraints.NONE);
-
-		private final int value;
-
-		Fill(int value) {
-			this.value = value;
-		}
-
 	}
 
 	@Contract("_ -> this")
@@ -144,6 +119,46 @@ public final class GridBagConstraintsBuilder {
 		return this;
 	}
 
+	@Contract("_ -> this")
+	public GridBagConstraintsBuilder anchor(final @NotNull Anchor anchor) {
+		constraints.anchor = anchor.value;
+		return this;
+	}
+
+	public GridBagConstraintsBuilder weightX(final @Range(from = 0, to = 1) float x) {
+		constraints.weightx = x;
+		return this;
+	}
+
+	public GridBagConstraintsBuilder weightY(final @Range(from = 0, to = 1) float y) {
+		constraints.weighty = y;
+		return this;
+	}
+
+	public enum GridSize {
+		LAST(GridBagConstraints.REMAINDER),
+		NEXT_TO_LAST(GridBagConstraints.RELATIVE);
+		private final int value;
+
+		GridSize(int value) {
+			this.value = value;
+		}
+	}
+
+	public enum Fill {
+		VERTICAL(GridBagConstraints.VERTICAL),
+		HORIZONTAL(GridBagConstraints.HORIZONTAL),
+		BOTH(GridBagConstraints.BOTH),
+		NONE(GridBagConstraints.NONE);
+
+		private final int value;
+
+		Fill(int value) {
+			this.value = value;
+		}
+
+	}
+
 	public enum Anchor {
 		FIRST_LINE_START(GridBagConstraints.FIRST_LINE_START),
 		LINE_START(GridBagConstraints.LINE_START),
@@ -160,21 +175,5 @@ public final class GridBagConstraintsBuilder {
 		Anchor(int value) {
 			this.value = value;
 		}
-	}
-
-	@Contract("_ -> this")
-	public GridBagConstraintsBuilder anchor(final @NotNull Anchor anchor) {
-		constraints.anchor = anchor.value;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder weightX(final @Range(from = 0, to = 1) float x) {
-		constraints.weightx = x;
-		return this;
-	}
-
-	public GridBagConstraintsBuilder weightY(final @Range(from = 0, to = 1) float y) {
-		constraints.weighty = y;
-		return this;
 	}
 }

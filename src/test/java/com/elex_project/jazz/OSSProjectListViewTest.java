@@ -13,6 +13,7 @@ import javax.swing.event.ListSelectionListener;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
 class OSSProjectListViewTest {
 
@@ -22,10 +23,12 @@ class OSSProjectListViewTest {
 		jFrame.setContentPane(contentPane);
 
 		final java.util.List<OSSProject> projects = OSSProject
-				.readAsList(OSSProjectListViewTest.class
-				.getResourceAsStream("/licenseReport.json"));
+				.readAsList(Objects.requireNonNull(OSSProjectListViewTest.class
+						.getResourceAsStream("/licenseReport.json")));
 		final OSSProjectListView listView = new OSSProjectListView(projects);
-		contentPane.add(new JScrollPane(listView), BorderLayout.CENTER);
+		final JScrollPane scrollPane = new JScrollPane(listView);
+		//scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		contentPane.add(scrollPane, BorderLayout.CENTER);
 		listView.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(final ListSelectionEvent listSelectionEvent) {

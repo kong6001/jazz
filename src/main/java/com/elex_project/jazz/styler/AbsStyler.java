@@ -72,7 +72,7 @@ abstract class AbsStyler implements Styler {
 	@Getter(AccessLevel.PROTECTED)
 	private final MutableAttributeSet attributeSet;
 
-	protected AbsStyler(final MutableAttributeSet attributeSet){
+	protected AbsStyler(final MutableAttributeSet attributeSet) {
 		this.attributeSet = attributeSet;
 	}
 

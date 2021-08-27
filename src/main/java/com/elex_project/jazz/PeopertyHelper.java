@@ -76,7 +76,7 @@ public final class PeopertyHelper {
 	}
 
 	private static void setProgress(final @NotNull JProgressBar jProgressBar,
-	                        final @NotNull IntegerProperty integerProperty) {
+	                                final @NotNull IntegerProperty integerProperty) {
 		Optional.ofNullable(integerProperty.get())
 				.ifPresentOrElse(integer -> {
 					jProgressBar.setIndeterminate(false);

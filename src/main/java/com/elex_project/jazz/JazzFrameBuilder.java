@@ -16,11 +16,6 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzFrameBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzFrameBuilder builder() {
-		return new JazzFrameBuilder();
-	}
-
 	private final JFrame jFrame;
 
 	public JazzFrameBuilder() {
@@ -29,6 +24,11 @@ public final class JazzFrameBuilder {
 		this.jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.jFrame.setSize(800, 600);
 		this.jFrame.setLocationByPlatform(true);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzFrameBuilder builder() {
+		return new JazzFrameBuilder();
 	}
 
 	public JazzFrameBuilder title(final String title) {

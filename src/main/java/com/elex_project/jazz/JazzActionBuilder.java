@@ -18,16 +18,15 @@ import java.util.Map;
 
 @Slf4j
 public final class JazzActionBuilder {
+	private final Map<String, Object> map;
+	private ActionListener actionListener;
+	public JazzActionBuilder() {
+		map = new HashMap<>();
+	}
+
 	@Contract(value = " -> new", pure = true)
 	public static @NotNull JazzActionBuilder builder() {
 		return new JazzActionBuilder();
-	}
-
-	private final Map<String, Object> map;
-	private ActionListener actionListener;
-
-	public JazzActionBuilder() {
-		map = new HashMap<>();
 	}
 
 	@Contract(" -> new")

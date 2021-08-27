@@ -17,18 +17,17 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzGridBagPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzGridBagPanelBuilder builder() {
-		return new JazzGridBagPanelBuilder();
-	}
-
 	private final JPanel jPanel;
 	private final GridBagLayout layout;
-
 	public JazzGridBagPanelBuilder() {
 		jPanel = new JPanel();
 		layout = new GridBagLayout();
 		jPanel.setLayout(layout);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzGridBagPanelBuilder builder() {
+		return new JazzGridBagPanelBuilder();
 	}
 
 	public JPanel build() {

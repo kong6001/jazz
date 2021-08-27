@@ -16,11 +16,6 @@ import java.awt.event.ActionListener;
 
 @Slf4j
 public final class JazzButtonBuilder {
-	@Contract(value = " -> new", pure = true)
-	public static @NotNull JazzButtonBuilder builder() {
-		return new JazzButtonBuilder();
-	}
-
 	private String title, tooltip;
 	private Icon icon;
 	private ActionListener listener;
@@ -30,6 +25,11 @@ public final class JazzButtonBuilder {
 
 	public JazzButtonBuilder() {
 
+	}
+
+	@Contract(value = " -> new", pure = true)
+	public static @NotNull JazzButtonBuilder builder() {
+		return new JazzButtonBuilder();
 	}
 
 	private void build(final AbstractButton button) {

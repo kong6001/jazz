@@ -110,7 +110,7 @@ public class JazzDialog extends JDialog {
 			return this;
 		}
 
-		public Builder pack(){
+		public Builder pack() {
 			dialog.pack();
 			return this;
 		}

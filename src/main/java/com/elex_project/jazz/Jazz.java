@@ -111,7 +111,7 @@ public final class Jazz {
 		graphicsDevice.setFullScreenWindow(null);
 	}
 
-	public static @NotNull BufferedImage capture(final @NotNull Component component){
+	public static @NotNull BufferedImage capture(final @NotNull Component component) {
 		final BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
 		component.paint(image.getGraphics());

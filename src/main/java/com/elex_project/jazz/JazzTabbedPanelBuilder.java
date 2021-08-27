@@ -15,17 +15,17 @@ import javax.swing.*;
 
 @Slf4j
 public final class JazzTabbedPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzTabbedPanelBuilder builder() {
-		return new JazzTabbedPanelBuilder();
-	}
-
 	private final JTabbedPane jTabbedPane;
 
 	public JazzTabbedPanelBuilder() {
 		jTabbedPane = new JTabbedPane();
 		jTabbedPane.setTabPlacement(JTabbedPane.TOP);
 		jTabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzTabbedPanelBuilder builder() {
+		return new JazzTabbedPanelBuilder();
 	}
 
 	public JTabbedPane build() {
@@ -47,6 +47,18 @@ public final class JazzTabbedPanelBuilder {
 		return this;
 	}
 
+	@Contract("_ -> this")
+	public JazzTabbedPanelBuilder place(final @NotNull Placement placement) {
+		jTabbedPane.setTabPlacement(placement.value);
+		return this;
+	}
+
+	@Contract("_ -> this")
+	public JazzTabbedPanelBuilder layout(@NotNull Layout layout) {
+		jTabbedPane.setTabLayoutPolicy(layout.value);
+		return this;
+	}
+
 	public enum Placement {
 		TOP(JTabbedPane.TOP),
 		LEFT(JTabbedPane.LEFT),
@@ -59,12 +71,6 @@ public final class JazzTabbedPanelBuilder {
 		}
 	}
 
-	@Contract("_ -> this")
-	public JazzTabbedPanelBuilder place(final @NotNull Placement placement) {
-		jTabbedPane.setTabPlacement(placement.value);
-		return this;
-	}
-
 	public enum Layout {
 		WRAP(JTabbedPane.WRAP_TAB_LAYOUT),
 		SCROLL(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -73,12 +79,6 @@ public final class JazzTabbedPanelBuilder {
 		Layout(int value) {
 			this.value = value;
 		}
-	}
-
-	@Contract("_ -> this")
-	public JazzTabbedPanelBuilder layout(@NotNull Layout layout) {
-		jTabbedPane.setTabLayoutPolicy(layout.value);
-		return this;
 	}
 
 }

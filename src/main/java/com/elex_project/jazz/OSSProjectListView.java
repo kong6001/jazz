@@ -57,16 +57,16 @@ public class OSSProjectListView extends JList<OSSProject> {
 
 	static class OSSProjectCellRenderer extends JPanel implements ListCellRenderer<OSSProject> {
 
-		private final JPanel vBox, line1, line2;
+		//private final JPanel vBox, line1, line2;
 		private final JLabel lblTitle, lblDeveloper, lblLicense, lblVersion;
 
 		OSSProjectCellRenderer() {
-			super(new BorderLayout());
+			super(new GridBagLayout());
 
 			this.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 			this.setOpaque(true);
 
-			this.vBox = new JPanel();
+			/*this.vBox = new JPanel();
 			this.vBox.setLayout(new BoxLayout(vBox, BoxLayout.PAGE_AXIS));
 			this.vBox.setOpaque(true);
 
@@ -76,7 +76,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 
 			this.line2 = new JPanel();
 			this.line2.setLayout(new BoxLayout(line2, BoxLayout.LINE_AXIS));
-			this.line2.setOpaque(true);
+			this.line2.setOpaque(true);*/
 
 			this.lblTitle = new JLabel();
 			this.lblVersion = new JLabel();
@@ -85,7 +85,29 @@ public class OSSProjectListView extends JList<OSSProject> {
 			lblDeveloper.setFont(lblDeveloper.getFont().deriveFont(Font.ITALIC));
 			this.lblLicense = new JLabel();
 
-			this.line1.add(lblTitle);
+			add(lblTitle, JazzBuilders.constraints()
+					.grid(0, 0)
+					//.weightX(.5f)
+					.insets(2)
+					.build());
+			add(lblVersion, JazzBuilders.constraints()
+					.grid(1, 0)
+					//.anchor(GridBagConstraintsBuilder.Anchor.LINE_END)
+					.insets(2)
+					.build());
+			add(lblDeveloper, JazzBuilders.constraints()
+					.grid(0, 1)
+					.width(GridBagConstraintsBuilder.GridSize.LAST)
+					//.anchor(GridBagConstraintsBuilder.Anchor.LINE_END)
+					.insets(2)
+					.build());
+			add(lblLicense, JazzBuilders.constraints()
+					.grid(0, 2)
+					.width(GridBagConstraintsBuilder.GridSize.LAST)
+					.insets(2)
+					.weightX(1f)
+					.build());
+			/*this.line1.add(lblTitle);
 			this.line1.add(Box.createRigidArea(new Dimension(12, 8)));
 			this.line1.add(lblVersion);
 			this.line1.add(Box.createHorizontalGlue());
@@ -99,7 +121,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 			this.vBox.add(line2);
 
 			this.add(vBox, BorderLayout.CENTER);
-			this.add(lblLicense, BorderLayout.EAST);
+			this.add(lblLicense, BorderLayout.EAST);*/
 
 		}
 
@@ -113,10 +135,14 @@ public class OSSProjectListView extends JList<OSSProject> {
 			joiner = new StringJoiner(", ");
 			for (String item : ossProject.getDevelopers()) {
 				joiner.add(item);
+				if (joiner.length() > 100) {
+					joiner.add("...");
+					break;
+				}
 			}
 			this.lblVersion.setText(ossProject.getVersion());
 			this.lblDeveloper.setText(joiner.toString());
-			joiner = new StringJoiner("\n");
+			joiner = new StringJoiner(", ");
 			for (OSSProject.License license : ossProject.getLicenses()) {
 				joiner.add(license.getLicense());
 			}
@@ -131,9 +157,9 @@ public class OSSProjectListView extends JList<OSSProject> {
 				this.lblVersion.setForeground(jList.getSelectionForeground());
 
 				this.setBackground(jList.getSelectionBackground());
-				this.vBox.setBackground(jList.getSelectionBackground());
+				/*this.vBox.setBackground(jList.getSelectionBackground());
 				this.line1.setBackground(jList.getSelectionBackground());
-				this.line2.setBackground(jList.getSelectionBackground());
+				this.line2.setBackground(jList.getSelectionBackground());*/
 
 			} else {
 				this.lblTitle.setForeground(jList.getForeground());
@@ -142,9 +168,9 @@ public class OSSProjectListView extends JList<OSSProject> {
 				this.lblVersion.setForeground(jList.getForeground());
 
 				this.setBackground(jList.getBackground());
-				this.vBox.setBackground(jList.getBackground());
+				/*this.vBox.setBackground(jList.getBackground());
 				this.line1.setBackground(jList.getBackground());
-				this.line2.setBackground(jList.getBackground());
+				this.line2.setBackground(jList.getBackground());*/
 
 			}
 

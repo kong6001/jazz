@@ -65,17 +65,17 @@ public class JazzFileTreeView extends JTree {
 
 	public static DefaultTreeCellRenderer generateRenderer(
 			final InputStream imgOpen, final InputStream imgClosed, final InputStream imgLeaf
-			) throws IOException {
+	) throws IOException {
 		final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 		renderer.setOpenIcon(new ImageIcon(ImageIO
 				.read(Objects.requireNonNull(imgOpen))
-				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+				.getScaledInstance(16, 16, Image.SCALE_DEFAULT)));
 		renderer.setClosedIcon(new ImageIcon(ImageIO
 				.read(Objects.requireNonNull(imgClosed))
-				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+				.getScaledInstance(16, 16, Image.SCALE_DEFAULT)));
 		renderer.setLeafIcon(new ImageIcon(ImageIO
 				.read(Objects.requireNonNull(imgLeaf))
-				.getScaledInstance(16,16, Image.SCALE_DEFAULT)));
+				.getScaledInstance(16, 16, Image.SCALE_DEFAULT)));
 
 		return renderer;
 	}

@@ -19,11 +19,6 @@ import java.nio.file.Path;
 
 @Slf4j
 public final class JazzFileChooserBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzFileChooserBuilder builder() {
-		return new JazzFileChooserBuilder();
-	}
-
 	private final JFileChooser jFileChooser;
 
 	public JazzFileChooserBuilder() {
@@ -31,6 +26,11 @@ public final class JazzFileChooserBuilder {
 		jFileChooser.setMultiSelectionEnabled(false);
 		jFileChooser.setAcceptAllFileFilterUsed(false);
 		jFileChooser.setFileHidingEnabled(false);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzFileChooserBuilder builder() {
+		return new JazzFileChooserBuilder();
 	}
 
 	public JFileChooser build() {

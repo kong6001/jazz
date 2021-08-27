@@ -17,17 +17,16 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzBoxPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzBoxPanelBuilder builder() {
-		return new JazzBoxPanelBuilder();
-	}
-
 	private final JPanel jPanel;
 	private boolean isVertical = false;
-
 	public JazzBoxPanelBuilder() {
 		jPanel = new JPanel();
 		jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.LINE_AXIS));
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzBoxPanelBuilder builder() {
+		return new JazzBoxPanelBuilder();
 	}
 
 	public JPanel build() {

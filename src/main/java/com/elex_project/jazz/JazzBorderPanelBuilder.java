@@ -17,16 +17,16 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzBorderPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzBorderPanelBuilder builder() {
-		return new JazzBorderPanelBuilder();
-	}
-
 	private final JPanel jPanel;
 
 	public JazzBorderPanelBuilder() {
 		jPanel = new JPanel();
 		jPanel.setLayout(new BorderLayout());
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzBorderPanelBuilder builder() {
+		return new JazzBorderPanelBuilder();
 	}
 
 	public JPanel build() {

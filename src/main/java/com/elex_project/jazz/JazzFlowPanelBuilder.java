@@ -17,18 +17,17 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzFlowPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzFlowPanelBuilder builder() {
-		return new JazzFlowPanelBuilder();
-	}
-
 	private final JPanel jPanel;
 	private final FlowLayout layout;
-
 	public JazzFlowPanelBuilder() {
 		jPanel = new JPanel();
 		layout = new FlowLayout(FlowLayout.LEADING, 4, 4);
 		jPanel.setLayout(layout);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzFlowPanelBuilder builder() {
+		return new JazzFlowPanelBuilder();
 	}
 
 	public JPanel build() {
@@ -67,15 +66,6 @@ public final class JazzFlowPanelBuilder {
 		return this;
 	}
 
-	public enum Align{
-		CENTER(FlowLayout.CENTER),
-		LEADING(FlowLayout.LEADING),
-		TRAILING(FlowLayout.TRAILING);
-		private final int value;
-		Align(int value){
-			this.value = value;
-		}
-	}
 	@Contract("_ -> this")
 	public JazzFlowPanelBuilder align(final @NotNull Align align) {
 		layout.setAlignment(align.value);
@@ -91,5 +81,16 @@ public final class JazzFlowPanelBuilder {
 		layout.setHgap(hGap);
 		layout.setVgap(vGap);
 		return this;
+	}
+
+	public enum Align {
+		CENTER(FlowLayout.CENTER),
+		LEADING(FlowLayout.LEADING),
+		TRAILING(FlowLayout.TRAILING);
+		private final int value;
+
+		Align(int value) {
+			this.value = value;
+		}
 	}
 }

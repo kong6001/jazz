@@ -16,14 +16,8 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzDialogBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzDialogBuilder builder(final JFrame owner) {
-		return new JazzDialogBuilder(owner);
-	}
-
 	private final JDialog jDialog;
 	private final JPanel jPanel = new JPanel();
-
 	public JazzDialogBuilder(final JFrame owner) {
 		this.jDialog = new JDialog(owner);
 		init();
@@ -37,6 +31,11 @@ public final class JazzDialogBuilder {
 	public JazzDialogBuilder(final JDialog owner) {
 		this.jDialog = new JDialog(owner);
 		init();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzDialogBuilder builder(final JFrame owner) {
+		return new JazzDialogBuilder(owner);
 	}
 
 	private void init() {

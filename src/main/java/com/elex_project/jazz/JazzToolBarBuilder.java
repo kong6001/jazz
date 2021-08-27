@@ -17,16 +17,16 @@ import java.awt.event.ActionListener;
 
 @Slf4j
 public final class JazzToolBarBuilder {
-	@Contract(value = " -> new", pure = true)
-	public static @NotNull JazzToolBarBuilder builder() {
-		return new JazzToolBarBuilder();
-	}
-
 	private final JToolBar jToolBar;
 
 	public JazzToolBarBuilder() {
 		jToolBar = new JToolBar();
 		jToolBar.setFloatable(false);
+	}
+
+	@Contract(value = " -> new", pure = true)
+	public static @NotNull JazzToolBarBuilder builder() {
+		return new JazzToolBarBuilder();
 	}
 
 	public JToolBar build() {
@@ -37,14 +37,17 @@ public final class JazzToolBarBuilder {
 		jToolBar.setFloatable(true);
 		return this;
 	}
+
 	public JazzToolBarBuilder alignX(final float align) {
 		jToolBar.setAlignmentX(align);
 		return this;
 	}
+
 	public JazzToolBarBuilder alignY(final float align) {
 		jToolBar.setAlignmentY(align);
 		return this;
 	}
+
 	public JazzToolBarBuilder add(final Action action) {
 		jToolBar.add(action);
 		return this;

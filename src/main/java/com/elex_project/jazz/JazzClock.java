@@ -20,10 +20,9 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class JazzClock extends JLabel {
-	private final ScheduledExecutorService executor;
-
 	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss");
+	private final ScheduledExecutorService executor;
 
 	public JazzClock() {
 		super();
@@ -49,7 +48,7 @@ public class JazzClock extends JLabel {
 				1000, TimeUnit.MILLISECONDS);
 	}
 
-	public void dispose(){
+	public void dispose() {
 		executor.shutdown();
 	}
 }

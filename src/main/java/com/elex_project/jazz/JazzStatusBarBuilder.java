@@ -24,17 +24,17 @@ import java.awt.*;
  */
 @Slf4j
 public final class JazzStatusBarBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzStatusBarBuilder builder() {
-		return new JazzStatusBarBuilder();
-	}
-
 	private final JPanel statusBar;
 
 	public JazzStatusBarBuilder() {
 		statusBar = new JPanel();
 		statusBar.setLayout(new BoxLayout(statusBar, BoxLayout.X_AXIS));
 		statusBar.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzStatusBarBuilder builder() {
+		return new JazzStatusBarBuilder();
 	}
 
 	public JPanel build() {

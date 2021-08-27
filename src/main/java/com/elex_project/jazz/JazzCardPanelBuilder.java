@@ -17,11 +17,6 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzCardPanelBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzCardPanelBuilder builder() {
-		return new JazzCardPanelBuilder();
-	}
-
 	private final JazzCardPanel jPanel;
 	private final CardLayout layout;
 
@@ -29,6 +24,11 @@ public final class JazzCardPanelBuilder {
 		layout = new CardLayout();
 		jPanel = new JazzCardPanel();
 		jPanel.setLayout(layout);
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzCardPanelBuilder builder() {
+		return new JazzCardPanelBuilder();
 	}
 
 	public JazzCardPanel build() {

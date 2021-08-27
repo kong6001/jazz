@@ -16,15 +16,15 @@ import javax.swing.*;
 @Slf4j
 
 public final class JazzMenuBarBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzMenuBarBuilder builder() {
-		return new JazzMenuBarBuilder();
-	}
-
 	private final JMenuBar jMenuBar;
 
 	public JazzMenuBarBuilder() {
 		jMenuBar = new JMenuBar();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzMenuBarBuilder builder() {
+		return new JazzMenuBarBuilder();
 	}
 
 	public JMenuBar build() {

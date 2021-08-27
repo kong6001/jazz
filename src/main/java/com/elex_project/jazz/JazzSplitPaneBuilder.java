@@ -8,6 +8,8 @@
 package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
 import javax.swing.*;
@@ -15,14 +17,15 @@ import javax.swing.border.Border;
 
 @Slf4j
 public final class JazzSplitPaneBuilder {
-	public static JazzSplitPaneBuilder builder() {
-		return new JazzSplitPaneBuilder();
-	}
-
 	private final JSplitPane jSplitPane;
 
 	public JazzSplitPaneBuilder() {
 		jSplitPane = new JSplitPane();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzSplitPaneBuilder builder() {
+		return new JazzSplitPaneBuilder();
 	}
 
 	public JSplitPane build() {

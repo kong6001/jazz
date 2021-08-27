@@ -38,20 +38,20 @@ public class JazzSettingsView extends JPanel {
 		box1.setLayout(new BoxLayout(box1, BoxLayout.PAGE_AXIS));
 		box1.add(lblIcon);
 		box1.add(Box.createVerticalGlue());
-		box1.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+		box1.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 
 		final JPanel box2 = new JPanel();
 		box2.setLayout(new BoxLayout(box2, BoxLayout.PAGE_AXIS));
 		box2.add(lblTitle);
 		box2.add(lblDescription);
 		box2.add(Box.createVerticalGlue());
-		box2.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+		box2.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 
 		final JPanel box3 = new JPanel();
 		box3.setLayout(new BoxLayout(box3, BoxLayout.PAGE_AXIS));
 		box3.add(component);
 		box3.add(Box.createVerticalGlue());
-		box3.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+		box3.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 
 		add(box1);
 		add(box2);

@@ -37,18 +37,6 @@ public class OSSProject {
 	@JsonProperty("dependency")
 	private String dependency;
 
-	@Data
-	@Setter(AccessLevel.PRIVATE)
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class License {
-		@JsonProperty("license")
-		private String license;
-		@JsonProperty("license_url")
-		private String licenseUrl;
-
-	}
-
 	public OSSProject(final String title, final String developer,
 	                  final String version, final String license, final String licenseUrl) {
 		this();
@@ -83,5 +71,17 @@ public class OSSProject {
 	public static OSSProject[] read(final @NotNull InputStream inputStream) throws IOException {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(inputStream, OSSProject[].class);
+	}
+
+	@Data
+	@Setter(AccessLevel.PRIVATE)
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public static class License {
+		@JsonProperty("license")
+		private String license;
+		@JsonProperty("license_url")
+		private String licenseUrl;
+
 	}
 }

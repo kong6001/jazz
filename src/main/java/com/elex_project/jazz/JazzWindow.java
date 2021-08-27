@@ -120,7 +120,7 @@ public class JazzWindow extends JazzFrame
 			return this;
 		}
 
-		public Builder centering(){
+		public Builder centering() {
 			window.setLocationRelativeTo(null);
 			return this;
 		}

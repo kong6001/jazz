@@ -19,13 +19,29 @@ import java.awt.*;
 public class JazzInputForm extends JPanel {
 	private final GridBagLayout layout;
 
-	public JazzInputForm(){
+	public JazzInputForm() {
 		super();
 		this.layout = new GridBagLayout();
 		init();
 	}
 
-	private void init(){
+	protected static GridBagConstraints constraints(final int x, final int y) {
+		final GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridwidth = (x == 0) ? 1 : GridBagConstraints.REMAINDER;
+		constraints.gridheight = 1;//GridBagConstraints.RELATIVE;
+		constraints.gridx = x;
+		constraints.gridy = y;
+		constraints.weightx = (x == 0) ? 0 : 1;
+		constraints.weighty = 0;
+		constraints.insets = new Insets(4, 4, 4, 4);
+		//constraints.anchor = (x == 0) ? GridBagConstraints.LINE_START : GridBagConstraints.LINE_END;
+		constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.anchor = GridBagConstraints.CENTER;
+		return constraints;
+
+	}
+
+	private void init() {
 
 		this.setLayout(this.layout);
 	}
@@ -57,21 +73,5 @@ public class JazzInputForm extends JPanel {
 		constraints.weighty = 1;
 		constraints.gridwidth = GridBagConstraints.REMAINDER;
 		this.add(Box.createVerticalBox(), constraints);
-	}
-
-	protected static GridBagConstraints constraints(final int x, final int y) {
-		final GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridwidth = (x == 0) ? 1 : GridBagConstraints.REMAINDER;
-		constraints.gridheight = 1;//GridBagConstraints.RELATIVE;
-		constraints.gridx = x;
-		constraints.gridy = y;
-		constraints.weightx = (x == 0) ? 0 : 1;
-		constraints.weighty = 0;
-		constraints.insets = new Insets(4, 4, 4, 4);
-		//constraints.anchor = (x == 0) ? GridBagConstraints.LINE_START : GridBagConstraints.LINE_END;
-		constraints.fill = GridBagConstraints.HORIZONTAL;
-		constraints.anchor = GridBagConstraints.CENTER;
-		return constraints;
-
 	}
 }

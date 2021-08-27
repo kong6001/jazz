@@ -47,15 +47,37 @@ public abstract class FileChooseHandler {
 		}
 	}
 
+	/**
+	 * Override this
+	 *
+	 * @param jFileChooser jFileChooser
+	 * @param file         selected file
+	 */
 	public void onApproved(final JFileChooser jFileChooser, final File file) {
 	}
 
+	/**
+	 * Override this
+	 *
+	 * @param jFileChooser jFileChooser
+	 * @param files        selected files
+	 */
 	public void onApproved(final JFileChooser jFileChooser, final File[] files) {
 	}
 
+	/**
+	 * Override this
+	 *
+	 * @param jFileChooser jFileChooser
+	 */
 	public void onCancel(final JFileChooser jFileChooser) {
 	}
 
+	/**
+	 * Override this
+	 *
+	 * @param jFileChooser jFileChooser
+	 */
 	public void onError(final JFileChooser jFileChooser) {
 	}
 }

@@ -31,7 +31,7 @@ public class JazzFileTreeNode extends DefaultMutableTreeNode {
 		this.path = path;
 	}
 
-	public Path getFilePath(){
+	public Path getFilePath() {
 		return path;
 	}
 
@@ -52,7 +52,7 @@ public class JazzFileTreeNode extends DefaultMutableTreeNode {
 					.filter((p) -> Files.isDirectory(p))
 					.sorted(Comparator.comparing(p -> p.normalize().toString()))
 					.toArray()[i]);
-		} catch (Throwable e){
+		} catch (Throwable e) {
 			return null;
 
 		}
@@ -61,10 +61,10 @@ public class JazzFileTreeNode extends DefaultMutableTreeNode {
 	@Override
 	public int getChildCount() {
 		try {
-			return (int)Files.list(path)
+			return (int) Files.list(path)
 					.filter((p) -> Files.isDirectory(p))
 					.count();
-		} catch (Throwable e){
+		} catch (Throwable e) {
 			return 0;
 
 		}
@@ -79,12 +79,12 @@ public class JazzFileTreeNode extends DefaultMutableTreeNode {
 					.filter((p) -> Files.isDirectory(p))
 					.sorted(Comparator.comparing(p -> p.normalize().toString()))
 					.toArray();
-			for (int i=0; i<children.length; i++) {
-				if (children[i].equals(((JazzFileTreeNode)treeNode).path)){
+			for (int i = 0; i < children.length; i++) {
+				if (children[i].equals(((JazzFileTreeNode) treeNode).path)) {
 					return i;
 				}
 			}
-		} catch (Throwable e){
+		} catch (Throwable e) {
 			//return 0;
 
 		}

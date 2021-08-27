@@ -16,15 +16,15 @@ import java.awt.*;
 
 @Slf4j
 public final class JazzOptionDialogBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzOptionDialogBuilder builder() {
-		return new JazzOptionDialogBuilder();
-	}
-
 	private final JOptionPane jOptionPane;
 
 	public JazzOptionDialogBuilder() {
 		jOptionPane = new JOptionPane();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzOptionDialogBuilder builder() {
+		return new JazzOptionDialogBuilder();
 	}
 
 	public JOptionPane build() {
@@ -32,9 +32,8 @@ public final class JazzOptionDialogBuilder {
 	}
 
 	/**
-	 *
 	 * @param parent jFrame
-	 * @param title title
+	 * @param title  title
 	 * @return UNINITIALIZED_VALUE or null or button number or user input object
 	 */
 	public Object launch(final Component parent, final String title) {

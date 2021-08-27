@@ -19,15 +19,15 @@ import java.awt.event.MouseEvent;
 @Slf4j
 
 public final class JazzPopupMenuBuilder {
-	@Contract(" -> new")
-	public static @NotNull JazzPopupMenuBuilder builder() {
-		return new JazzPopupMenuBuilder();
-	}
-
 	private final JPopupMenu jPopupMenu;
 
 	public JazzPopupMenuBuilder() {
 		jPopupMenu = new JPopupMenu();
+	}
+
+	@Contract(" -> new")
+	public static @NotNull JazzPopupMenuBuilder builder() {
+		return new JazzPopupMenuBuilder();
 	}
 
 	public JPopupMenu build() {
