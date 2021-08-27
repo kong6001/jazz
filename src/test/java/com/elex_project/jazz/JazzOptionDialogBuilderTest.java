@@ -19,6 +19,7 @@ class JazzOptionDialogBuilderTest {
 		final JButton button1 = new JButton("Button 1");
 		final JButton button2 = new JButton("Button 2");
 		final JButton button3 = new JButton("Button 3");
+		final JButton button4 = new JButton("Button 4");
 
 		final JFrame jFrame = JazzBuilders.frame()
 				.content(JazzBuilders.flowLayout()
@@ -26,6 +27,7 @@ class JazzOptionDialogBuilderTest {
 						.add(button1)
 						.add(button2)
 						.add(button3)
+						.add(button4)
 						.build())
 				.buildAndLaunch();
 
@@ -52,7 +54,16 @@ class JazzOptionDialogBuilderTest {
 					.message("Pick?")
 					.options("A", "B", "C")
 					.okCancelButtons()
-					.launch(jFrame, "Simple Dialog 2");
+					.launch(jFrame, "Simple Dialog 3");
+			Console.writeLine("Result: {}", result.toString());
+		});
+		button4.addActionListener(e->{
+			Object result = JazzBuilders.optionDialog()
+					.questionType()
+					.message("Type?")
+					.value(300)
+					.okCancelButtons()
+					.launch(jFrame, "Simple Dialog 4");
 			Console.writeLine("Result: {}", result.toString());
 		});
 	}

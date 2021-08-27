@@ -136,6 +136,7 @@ public final class JazzOptionDialogBuilder {
 
 	public JazzOptionDialogBuilder value(final Object initialValue) {
 		jOptionPane.setInitialValue(initialValue);
+		jOptionPane.setWantsInput(true);
 		return this;
 	}
 }
