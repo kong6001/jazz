@@ -7,10 +7,14 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.ObjectProperty;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 @Slf4j
 public class JazzFontComboBox extends JComboBox<Font> {
@@ -22,6 +26,11 @@ public class JazzFontComboBox extends JComboBox<Font> {
 		super(fonts);
 
 		this.setRenderer(new FontLabel());
+	}
+
+	public void linkProperty(@NotNull final ObjectProperty<Font> fontProperty) {
+		this.addItemListener(itemEvent
+				-> fontProperty.set((Font) getSelectedItem()));
 	}
 
 	private static class FontLabel extends JLabel implements ListCellRenderer<Font> {

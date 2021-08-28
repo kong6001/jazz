@@ -7,7 +7,9 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.ObjectProperty;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.event.TreeExpansionEvent;
@@ -21,9 +23,23 @@ import java.util.Comparator;
 
 @Slf4j
 public class JazzDirTreeView extends JTree {
+
 	public JazzDirTreeView() {
 		super();
 		init();
+	}
+
+	/**
+	 * link with tree selection event
+	 * @param pathProperty property
+	 */
+	public void linkProperty(@NotNull final ObjectProperty<Path> pathProperty) {
+
+		this.addTreeSelectionListener(treeSelectionEvent -> {
+			final Node node = (Node) getLastSelectedPathComponent();
+			pathProperty.set(node.getPathObject());
+		});
+
 	}
 
 	private void init() {

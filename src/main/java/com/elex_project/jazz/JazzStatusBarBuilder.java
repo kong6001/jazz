@@ -18,6 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Build a JPanel with a H-Box layout.
@@ -120,5 +122,52 @@ public final class JazzStatusBarBuilder {
 		return this;
 	}
 
+	public JazzStatusBarBuilder add(final String child, final @NotNull JPopupMenu popupMenu) {
+		final JLabel jLabel = new JLabel(child);
+		statusBar.add(jLabel);
 
+		jLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				popupMenu.show(jLabel,e.getX(),e.getY());
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.BOLD));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.PLAIN));
+			}
+		});
+		return this;
+	}
+
+	public JazzStatusBarBuilder add(final @NotNull StringProperty property,
+	                                final @NotNull JPopupMenu popupMenu) {
+		final JLabel jLabel = new JLabel();
+		jLabel.setText(property.get());
+		property.addListener((PropertyListener<String>) (oldValue, newValue)
+				-> jLabel.setText(newValue));
+		statusBar.add(jLabel);
+		jLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				popupMenu.show(jLabel,e.getX(),e.getY());
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.BOLD));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.PLAIN));
+			}
+		});
+		return this;
+	}
 }

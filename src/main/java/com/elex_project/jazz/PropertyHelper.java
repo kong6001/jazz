@@ -7,10 +7,7 @@
 
 package com.elex_project.jazz;
 
-import com.elex_project.dwarf.BooleanProperty;
-import com.elex_project.dwarf.IntegerProperty;
-import com.elex_project.dwarf.PropertyListener;
-import com.elex_project.dwarf.StringProperty;
+import com.elex_project.dwarf.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,8 +18,8 @@ import javax.swing.text.JTextComponent;
 import java.util.Optional;
 
 @Slf4j
-public final class PeopertyHelper {
-	private PeopertyHelper() {
+public final class PropertyHelper {
+	private PropertyHelper() {
 	}
 
 	public static void link(final @NotNull JLabel jLabel,
@@ -73,6 +70,27 @@ public final class PeopertyHelper {
 		setProgress(jProgressBar, integerProperty);
 		integerProperty.addListener((PropertyListener<Integer>) (oldValue, newValue)
 				-> setProgress(jProgressBar, integerProperty));
+	}
+
+	public static void link(final @NotNull JComboBox<String> jComboBox,
+	                            final @NotNull StringProperty property) {
+		jComboBox.setSelectedItem(property.get());
+		jComboBox.addItemListener(itemEvent
+				-> property.set((String) jComboBox.getSelectedItem()));
+	}
+
+	public static <T> void link(final @NotNull JComboBox<T> jComboBox,
+	                            final @NotNull ObjectProperty<T> property) {
+		jComboBox.setSelectedItem(property.get());
+		jComboBox.addItemListener(itemEvent
+				-> property.set((T) jComboBox.getSelectedItem()));
+	}
+
+	public static <T extends Enum<?>> void link(final @NotNull JComboBox<T> jComboBox,
+	                                            final @NotNull EnumProperty<T> property) {
+		jComboBox.setSelectedItem(property.get());
+		jComboBox.addItemListener(itemEvent
+				-> property.set((T) jComboBox.getSelectedItem()));
 	}
 
 	private static void setProgress(final @NotNull JProgressBar jProgressBar,
