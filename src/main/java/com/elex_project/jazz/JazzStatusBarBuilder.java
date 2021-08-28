@@ -174,7 +174,81 @@ public final class JazzStatusBarBuilder {
 		final JLabel jLabel = new JLabel();
 		jLabel.setText(property.get());
 		property.addListener((PropertyListener<String>) (oldValue, newValue)
-				-> jLabel.setText(newValue));
+				-> {
+			jLabel.setText(newValue);
+		});
+		statusBar.add(jLabel);
+		jLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				popupMenu.show(jLabel, e.getX(), e.getY());
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.BOLD));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.PLAIN));
+			}
+		});
+		return this;
+	}
+
+	public <T> JazzStatusBarBuilder add(final @NotNull ObjectProperty<T> property,
+	                                    final @NotNull JPopupMenu popupMenu) {
+		final JLabel jLabel = new JLabel();
+		try {
+			jLabel.setText(property.optional().orElseThrow().toString());
+		} catch (NoSuchElementException e) {
+			jLabel.setText(null);
+		}
+		property.addListener((PropertyListener<T>) (oldValue, newValue)
+				-> {
+			if (null != newValue) {
+				jLabel.setText(newValue.toString());
+			} else {
+				jLabel.setText(null);
+			}
+		});
+		statusBar.add(jLabel);
+		jLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				popupMenu.show(jLabel, e.getX(), e.getY());
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.BOLD));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				jLabel.setFont(jLabel.getFont().deriveFont(Font.PLAIN));
+			}
+		});
+		return this;
+	}
+
+	public <T extends Enum<?>> JazzStatusBarBuilder add(final @NotNull EnumProperty<T> property,
+	                                    final @NotNull JPopupMenu popupMenu) {
+		final JLabel jLabel = new JLabel();
+		try {
+			jLabel.setText(property.optional().orElseThrow().toString());
+		} catch (NoSuchElementException e) {
+			jLabel.setText(null);
+		}
+		property.addListener((PropertyListener<T>) (oldValue, newValue)
+				-> {
+			if (null != newValue) {
+				jLabel.setText(newValue.toString());
+			} else {
+				jLabel.setText(null);
+			}
+		});
 		statusBar.add(jLabel);
 		jLabel.addMouseListener(new MouseAdapter() {
 			@Override
