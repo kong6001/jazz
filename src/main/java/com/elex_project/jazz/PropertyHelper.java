@@ -73,7 +73,7 @@ public final class PropertyHelper {
 	}
 
 	public static void link(final @NotNull JComboBox<String> jComboBox,
-	                            final @NotNull StringProperty property) {
+	                        final @NotNull StringProperty property) {
 		jComboBox.setSelectedItem(property.get());
 		jComboBox.addItemListener(itemEvent
 				-> property.set((String) jComboBox.getSelectedItem()));
@@ -95,12 +95,16 @@ public final class PropertyHelper {
 
 	private static void setProgress(final @NotNull JProgressBar jProgressBar,
 	                                final @NotNull IntegerProperty integerProperty) {
-		Optional.ofNullable(integerProperty.get())
-				.ifPresentOrElse(integer -> {
-					jProgressBar.setIndeterminate(false);
-					jProgressBar.setValue(integer);
-				}, () -> {
-					jProgressBar.setIndeterminate(true);
-				});
+		if (null == integerProperty.get()) {
+			jProgressBar.setVisible(false);
+		} else {
+			jProgressBar.setVisible(true);
+			if (integerProperty.optional().orElse(0) < 0) {
+				jProgressBar.setIndeterminate(true);
+			} else {
+				jProgressBar.setIndeterminate(false);
+				jProgressBar.setValue(integerProperty.optional().orElse(0));
+			}
+		}
 	}
 }

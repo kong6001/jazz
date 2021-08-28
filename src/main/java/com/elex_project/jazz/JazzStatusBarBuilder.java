@@ -93,6 +93,15 @@ public final class JazzStatusBarBuilder {
 		return this;
 	}
 
+	public JazzStatusBarBuilder addProgress(final int width, final int height,
+	                                        @NotNull final IntegerProperty property) {
+		final JProgressBar jProgressBar = new JProgressBar(JProgressBar.HORIZONTAL, 0, 100);
+		jProgressBar.setPreferredSize(new Dimension(width, height));
+		PropertyHelper.link(jProgressBar, property);
+		statusBar.add(jProgressBar);
+		return this;
+	}
+
 	public JazzStatusBarBuilder add(final @NotNull StringProperty property) {
 		final JLabel jLabel = new JLabel();
 		jLabel.setText(property.get());
