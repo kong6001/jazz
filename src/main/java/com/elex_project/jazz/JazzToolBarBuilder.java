@@ -86,4 +86,12 @@ public final class JazzToolBarBuilder {
 		jToolBar.add(jButton);
 		return this;
 	}
+
+	public JazzToolBarBuilder add(final String title, final Icon icon, final String tooltip, final ActionListener actionListener) {
+		final JButton jButton = new JButton(title, icon);
+		jButton.setToolTipText(tooltip);
+		jButton.addActionListener(actionListener);
+		jToolBar.add(jButton);
+		return this;
+	}
 }
