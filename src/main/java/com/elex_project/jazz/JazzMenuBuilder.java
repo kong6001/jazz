@@ -7,6 +7,7 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.StringProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -119,14 +120,44 @@ public final class JazzMenuBuilder {
 
 		return this;
 	}
+
 	@Contract("_ -> this")
 	public JazzMenuBuilder item(final @NotNull JazzMenuItemBuilder menuItem) {
 		jMenu.add(menuItem.build());
 
 		return this;
 	}
+
+	@Contract("_ -> this")
+	public JazzMenuBuilder items(final JMenuItem @NotNull ... items) {
+		for (JMenuItem item : items) {
+			jMenu.add(item);
+		}
+
+		return this;
+	}
+
 	public JazzMenuBuilder separator() {
 		jMenu.addSeparator();
 		return this;
 	}
+
+	public JazzMenuBuilder radio(final StringProperty property, final String... menuItems) {
+		final ButtonGroup buttonGroup = new ButtonGroup();
+		for (String item : menuItems) {
+			final JMenuItem jMenuItem = new JMenuItem(item);
+			jMenu.add(jMenuItem);
+			buttonGroup.add(jMenuItem);
+			jMenuItem.setSelected(item.equals(property.get()));
+			jMenuItem.addActionListener(e -> {
+				if (jMenuItem.isSelected()) {
+					property.set(jMenuItem.getText());
+				}
+			});
+		}
+
+		return this;
+	}
+
+
 }

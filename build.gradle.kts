@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "2.23.0"
+version = "2.24.0"
 description = "Jazz suite for the Swing!"
 
 repositories {
