@@ -40,4 +40,5 @@ public final class JazzMenuBarBuilder {
 	public @NotNull JazzMenuBuilder menu(final Action menu) {
 		return new JazzMenuBuilder(menu, this, jMenuBar);
 	}
+
 }

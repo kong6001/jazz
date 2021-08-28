@@ -8,6 +8,7 @@
 package com.elex_project.jazz;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -73,6 +74,18 @@ public final class JazzMenuBuilder {
 		return this;
 	}
 
+	public JazzMenuBuilder mnemonic(final int key) {
+		jMenu.setMnemonic(key);
+
+		return this;
+	}
+
+	public JazzMenuBuilder accelerator(final KeyStroke keyStroke) {
+		jMenu.setAccelerator(keyStroke);
+
+		return this;
+	}
+
 	public JazzMenuBuilder item(final JMenuItem menuItem) {
 		jMenu.add(menuItem);
 
@@ -106,7 +119,12 @@ public final class JazzMenuBuilder {
 
 		return this;
 	}
+	@Contract("_ -> this")
+	public JazzMenuBuilder item(final @NotNull JazzMenuItemBuilder menuItem) {
+		jMenu.add(menuItem.build());
 
+		return this;
+	}
 	public JazzMenuBuilder separator() {
 		jMenu.addSeparator();
 		return this;
