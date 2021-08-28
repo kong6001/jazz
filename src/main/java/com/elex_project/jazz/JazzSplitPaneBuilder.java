@@ -7,6 +7,7 @@
 
 package com.elex_project.jazz;
 
+import com.elex_project.dwarf.IntegerProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -14,6 +15,8 @@ import org.jetbrains.annotations.Range;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 @Slf4j
 public final class JazzSplitPaneBuilder {
@@ -49,7 +52,7 @@ public final class JazzSplitPaneBuilder {
 		return this;
 	}
 
-	public JazzSplitPaneBuilder location(final int pos) {
+	public JazzSplitPaneBuilder dividerLocation(final int pos) {
 		jSplitPane.setDividerLocation(pos);
 		return this;
 	}
@@ -60,7 +63,7 @@ public final class JazzSplitPaneBuilder {
 	 * @param pos 0 ~ 1
 	 * @return ..
 	 */
-	public JazzSplitPaneBuilder location(final @Range(from = 0, to = 1) float pos) {
+	public JazzSplitPaneBuilder dividerLocation(final @Range(from = 0, to = 1) float pos) {
 		jSplitPane.setDividerLocation(pos);
 		return this;
 	}
@@ -89,4 +92,12 @@ public final class JazzSplitPaneBuilder {
 		jSplitPane.setRightComponent(component);
 		return this;
 	}
+
+	public JazzSplitPaneBuilder dividerLocation(final @NotNull IntegerProperty property){
+		jSplitPane.setDividerLocation(property.optional().orElse(0));
+		jSplitPane.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
+				propertyChangeEvent -> property.set(jSplitPane.getDividerLocation()));
+		return this;
+	}
+
 }

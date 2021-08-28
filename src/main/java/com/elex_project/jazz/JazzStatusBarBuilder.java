@@ -7,10 +7,7 @@
 
 package com.elex_project.jazz;
 
-import com.elex_project.dwarf.EnumProperty;
-import com.elex_project.dwarf.IntegerProperty;
-import com.elex_project.dwarf.PropertyListener;
-import com.elex_project.dwarf.StringProperty;
+import com.elex_project.dwarf.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +17,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.NoSuchElementException;
 
 /**
  * Build a JPanel with a H-Box layout.
@@ -104,6 +102,19 @@ public final class JazzStatusBarBuilder {
 		return this;
 	}
 
+	public <T> JazzStatusBarBuilder add(final @NotNull ObjectProperty<T> property) {
+		final JLabel jLabel = new JLabel();
+		try {
+			jLabel.setText(property.optional().orElseThrow().toString());
+		} catch (NoSuchElementException e) {
+			jLabel.setText(null);
+		}
+		property.addListener((PropertyListener<T>) (oldValue, newValue)
+				-> jLabel.setText(newValue.toString()));
+		statusBar.add(jLabel);
+		return this;
+	}
+
 	public JazzStatusBarBuilder add(final @NotNull IntegerProperty property) {
 		final JLabel jLabel = new JLabel();
 		jLabel.setText(null == property.get() ? null : String.valueOf(property.get()));
@@ -115,7 +126,11 @@ public final class JazzStatusBarBuilder {
 
 	public <T extends Enum<?>> JazzStatusBarBuilder add(final @NotNull EnumProperty<T> property) {
 		final JLabel jLabel = new JLabel();
-		jLabel.setText(null == property.get() ? null : property.get().toString());
+		try {
+			jLabel.setText(property.optional().orElseThrow().toString());
+		} catch (NoSuchElementException e) {
+			jLabel.setText(null);
+		}
 		property.addListener((PropertyListener<T>) (oldValue, newValue)
 				-> jLabel.setText(newValue.toString()));
 		statusBar.add(jLabel);
@@ -129,7 +144,7 @@ public final class JazzStatusBarBuilder {
 		jLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				popupMenu.show(jLabel,e.getX(),e.getY());
+				popupMenu.show(jLabel, e.getX(), e.getY());
 			}
 
 			@Override
@@ -155,7 +170,7 @@ public final class JazzStatusBarBuilder {
 		jLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				popupMenu.show(jLabel,e.getX(),e.getY());
+				popupMenu.show(jLabel, e.getX(), e.getY());
 			}
 
 			@Override
