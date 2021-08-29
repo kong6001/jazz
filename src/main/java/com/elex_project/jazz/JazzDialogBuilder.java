@@ -13,11 +13,14 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 @Slf4j
 public final class JazzDialogBuilder {
 	private final JDialog jDialog;
 	private final JPanel jPanel = new JPanel();
+	private JPanel buttonPanel;
+
 	public JazzDialogBuilder(final JFrame owner) {
 		this.jDialog = new JDialog(owner);
 		init();
@@ -125,6 +128,7 @@ public final class JazzDialogBuilder {
 	}
 
 	public JazzDialogBuilder bottom(final JComponent content) {
+		this.buttonPanel = null;
 		jPanel.add(content, BorderLayout.SOUTH);
 		jDialog.setContentPane(this.jPanel);
 		return this;
@@ -137,6 +141,7 @@ public final class JazzDialogBuilder {
 	 * @return builder
 	 */
 	public JazzDialogBuilder bottom(final int border, final JComponent... buttons) {
+		this.buttonPanel = null;
 		final JPanel buttonPanel = JazzBuilders.flowLayout()
 				.gap(4, 2)
 				.align(JazzFlowPanelBuilder.Align.TRAILING)
@@ -152,6 +157,44 @@ public final class JazzDialogBuilder {
 
 	public JazzDialogBuilder bottom(final JComponent... buttons) {
 		return bottom(4, buttons);
+	}
+
+	public JazzDialogBuilder button(final String title, final ActionListener listener) {
+		final JButton jButton = new JButton(title);
+		jButton.addActionListener(listener);
+		return button(jButton);
+	}
+
+	public JazzDialogBuilder buttonClose(final String title, final Icon icon) {
+		return button(title, icon, e -> {
+			jDialog.dispose();
+		});
+	}
+
+	public JazzDialogBuilder buttonClose(final String title) {
+		return button(title, e -> {
+			jDialog.dispose();
+		});
+	}
+
+	public JazzDialogBuilder button(final String title, final Icon icon, final ActionListener listener) {
+		final JButton jButton = new JButton(title, icon);
+		jButton.addActionListener(listener);
+		return button(jButton);
+	}
+
+	public JazzDialogBuilder button(final JButton button) {
+		if (null == this.buttonPanel) {
+			this.buttonPanel = JazzBuilders.flowLayout()
+					.gap(4, 2)
+					.align(JazzFlowPanelBuilder.Align.TRAILING)
+					.border(4)
+					.build();
+			jPanel.add(buttonPanel, BorderLayout.SOUTH);
+			jDialog.setContentPane(this.jPanel);
+		}
+		buttonPanel.add(button);
+		return this;
 	}
 
 	public JazzDialogBuilder center(final JComponent content) {
