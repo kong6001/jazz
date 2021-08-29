@@ -79,6 +79,7 @@ public class OSSProjectListView extends JList<OSSProject> {
 			this.line2.setOpaque(true);*/
 
 			this.lblTitle = new JLabel();
+			lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD));
 			this.lblVersion = new JLabel();
 			lblVersion.setFont(lblVersion.getFont().deriveFont(Font.PLAIN));
 			this.lblDeveloper = new JLabel();

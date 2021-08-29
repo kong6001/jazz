@@ -48,7 +48,7 @@ public final class JazzGridPanelBuilder {
 
 	public JazzGridPanelBuilder border(final int h, final int v) {
 		jPanel.setBorder(BorderFactory
-				.createEmptyBorder(h, v, h, v));
+				.createEmptyBorder(v, h, v, h));
 		return this;
 	}
 

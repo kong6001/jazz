@@ -46,7 +46,7 @@ public final class JazzSplitPaneBuilder {
 
 	public JazzSplitPaneBuilder border(final int h, final int v) {
 		jSplitPane.setBorder(BorderFactory
-				.createEmptyBorder(h, v, h, v));
+				.createEmptyBorder(v, h, v, h));
 		return this;
 	}
 

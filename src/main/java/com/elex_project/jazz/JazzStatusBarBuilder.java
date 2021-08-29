@@ -55,7 +55,7 @@ public final class JazzStatusBarBuilder {
 
 	public JazzStatusBarBuilder border(final int h, final int v) {
 		statusBar.setBorder(BorderFactory
-				.createEmptyBorder(h, v, h, v));
+				.createEmptyBorder(v, h, v, h));
 		return this;
 	}
 
