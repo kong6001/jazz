@@ -56,9 +56,15 @@ public final class JazzBoxPanelBuilder {
 		return this;
 	}
 
-	public JazzBoxPanelBuilder border(final int t, int l, int b, int r) {
+	public JazzBoxPanelBuilder border(final int t, final int l, final int b, final int r) {
 		jPanel.setBorder(BorderFactory
 				.createEmptyBorder(t, l, b, r));
+		return this;
+	}
+
+	public JazzBoxPanelBuilder border(final int h, final int v) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
 		return this;
 	}
 
