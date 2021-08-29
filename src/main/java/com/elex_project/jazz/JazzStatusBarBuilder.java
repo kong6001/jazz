@@ -53,6 +53,12 @@ public final class JazzStatusBarBuilder {
 		return this;
 	}
 
+	public JazzStatusBarBuilder border(final int h, final int v) {
+		statusBar.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
+		return this;
+	}
+
 	public JazzStatusBarBuilder border(final Border border) {
 		statusBar.setBorder(border);
 		return this;
@@ -234,7 +240,7 @@ public final class JazzStatusBarBuilder {
 	}
 
 	public <T extends Enum<?>> JazzStatusBarBuilder add(final @NotNull EnumProperty<T> property,
-	                                    final @NotNull JPopupMenu popupMenu) {
+	                                                    final @NotNull JPopupMenu popupMenu) {
 		final JLabel jLabel = new JLabel();
 		try {
 			jLabel.setText(property.optional().orElseThrow().toString());

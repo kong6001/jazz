@@ -20,6 +20,7 @@ import java.util.Map;
 public final class JazzActionBuilder {
 	private final Map<String, Object> map;
 	private ActionListener actionListener;
+
 	public JazzActionBuilder() {
 		map = new HashMap<>();
 	}

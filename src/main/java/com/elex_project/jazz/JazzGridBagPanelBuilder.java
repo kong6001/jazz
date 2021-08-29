@@ -19,6 +19,7 @@ import java.awt.*;
 public final class JazzGridBagPanelBuilder {
 	private final JPanel jPanel;
 	private final GridBagLayout layout;
+
 	public JazzGridBagPanelBuilder() {
 		jPanel = new JPanel();
 		layout = new GridBagLayout();
@@ -42,6 +43,12 @@ public final class JazzGridBagPanelBuilder {
 	public JazzGridBagPanelBuilder border(final int border) {
 		jPanel.setBorder(BorderFactory
 				.createEmptyBorder(border, border, border, border));
+		return this;
+	}
+
+	public JazzGridBagPanelBuilder border(final int h, final int v) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
 		return this;
 	}
 

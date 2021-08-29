@@ -15,8 +15,6 @@ import org.jetbrains.annotations.Range;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 @Slf4j
 public final class JazzSplitPaneBuilder {
@@ -43,6 +41,12 @@ public final class JazzSplitPaneBuilder {
 	public JazzSplitPaneBuilder border(final int border) {
 		jSplitPane.setBorder(BorderFactory
 				.createEmptyBorder(border, border, border, border));
+		return this;
+	}
+
+	public JazzSplitPaneBuilder border(final int h, final int v) {
+		jSplitPane.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
 		return this;
 	}
 
@@ -93,7 +97,7 @@ public final class JazzSplitPaneBuilder {
 		return this;
 	}
 
-	public JazzSplitPaneBuilder dividerLocation(final @NotNull IntegerProperty property){
+	public JazzSplitPaneBuilder dividerLocation(final @NotNull IntegerProperty property) {
 		jSplitPane.setDividerLocation(property.optional().orElse(0));
 		jSplitPane.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY,
 				propertyChangeEvent -> property.set(jSplitPane.getDividerLocation()));

@@ -14,14 +14,14 @@ import java.awt.event.ActionListener;
 
 @Slf4j
 public final class JazzMenuItemBuilder {
-	public static JazzMenuItemBuilder builder() {
-		return new JazzMenuItemBuilder();
-	}
-
 	private final JMenuItem jMenuItem;
 
 	public JazzMenuItemBuilder() {
 		jMenuItem = new JMenuItem();
+	}
+
+	public static JazzMenuItemBuilder builder() {
+		return new JazzMenuItemBuilder();
 	}
 
 	public JMenuItem build() {

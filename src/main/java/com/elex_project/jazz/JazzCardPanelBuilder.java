@@ -40,6 +40,12 @@ public final class JazzCardPanelBuilder {
 		return this;
 	}
 
+	public JazzCardPanelBuilder border(final int h, final int v) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
+		return this;
+	}
+
 	public JazzCardPanelBuilder border(final int border) {
 		jPanel.setBorder(BorderFactory
 				.createEmptyBorder(border, border, border, border));

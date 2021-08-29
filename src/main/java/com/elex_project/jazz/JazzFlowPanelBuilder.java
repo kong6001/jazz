@@ -19,6 +19,7 @@ import java.awt.*;
 public final class JazzFlowPanelBuilder {
 	private final JPanel jPanel;
 	private final FlowLayout layout;
+
 	public JazzFlowPanelBuilder() {
 		jPanel = new JPanel();
 		layout = new FlowLayout(FlowLayout.LEADING, 4, 4);
@@ -42,6 +43,12 @@ public final class JazzFlowPanelBuilder {
 	public JazzFlowPanelBuilder border(final int border) {
 		jPanel.setBorder(BorderFactory
 				.createEmptyBorder(border, border, border, border));
+		return this;
+	}
+
+	public JazzFlowPanelBuilder border(final int h, final int v) {
+		jPanel.setBorder(BorderFactory
+				.createEmptyBorder(h, v, h, v));
 		return this;
 	}
 

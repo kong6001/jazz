@@ -13,8 +13,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 @Slf4j
 public class JazzFontComboBox extends JComboBox<Font> {

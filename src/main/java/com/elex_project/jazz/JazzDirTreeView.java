@@ -31,6 +31,7 @@ public class JazzDirTreeView extends JTree {
 
 	/**
 	 * link with tree selection event
+	 *
 	 * @param pathProperty property
 	 */
 	public void linkProperty(@NotNull final ObjectProperty<Path> pathProperty) {
