@@ -55,8 +55,7 @@ public final class JazzScrollPaneBuilder {
 	}
 
 	public JazzScrollPaneBuilder with(final @NotNull JComponent child) {
-		jScrollPane.removeAll();
-		jScrollPane.add(child);
+		jScrollPane.getViewport().setView(child);
 		return this;
 	}
 
