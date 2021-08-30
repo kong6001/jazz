@@ -13,6 +13,8 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URI;
@@ -117,5 +119,14 @@ public final class Jazz {
 		component.paint(image.getGraphics());
 
 		return image;
+	}
+
+	public static void copyToClipboard(final String string) {
+		copyToClipboard(new StringSelection(string));
+	}
+
+	public static void copyToClipboard(final Transferable transferable) {
+		Toolkit.getDefaultToolkit().getSystemClipboard()
+				.setContents(transferable, null);
 	}
 }
