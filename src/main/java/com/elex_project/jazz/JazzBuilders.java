@@ -61,6 +61,11 @@ public final class JazzBuilders {
 	}
 
 	@Contract(" -> new")
+	public static @NotNull JazzScrollPaneBuilder scrollable() {
+		return new JazzScrollPaneBuilder();
+	}
+
+	@Contract(" -> new")
 	public static @NotNull JazzStatusBarBuilder statusBar() {
 		return new JazzStatusBarBuilder();
 	}
